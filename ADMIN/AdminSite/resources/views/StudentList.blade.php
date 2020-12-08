@@ -6,6 +6,8 @@
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
+                <h3 class="text-center">Student List</h3>
+                <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>

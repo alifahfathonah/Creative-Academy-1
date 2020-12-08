@@ -1,21 +1,22 @@
 @extends('Layout.app')
-@section('title','Payment Guide')
+@section('title','All Course')
 @section('content')
 
 
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h3 class="text-center">Payment Guide</h3>
-                <button id="addNewBtnId" class="btn my-3 btn-sm btn-danger">Add New</button>
+                <h3 class="text-center">Course List</h3>
+                <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="th-sm">ID</th>
-                        <th class="th-sm">Payment Des</th>
-                        <th class="th-sm">Payment Price</th>
-                        <th class="th-sm">Payment Banner</th>
+                        <th class="th-sm">Course Title</th>
+                        <th class="th-sm">Course Description</th>
+                        <th class="th-sm">Course Code</th>
+                        <th class="th-sm">Course Fee</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -70,10 +71,14 @@
                     <div id="EditForm" class="d-none w-100">
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" id="PaymentGuideDesEditId" class="form-control mb-4" placeholder="Payment Guide Description">
-                                <input type="text" id="PaymentGuidePriceEditId" class="form-control mb-4" placeholder="Payment Guide Price">
-                                <input type="text" id="PaymentGuideBannerEditId" class="form-control mb-4" placeholder="Payment Guide Banner">
+                            <div class="col-md-6">
+                                <input type="text" id="CourseTitleEditId" class="form-control mb-4" placeholder="Course Title">
+                                <input type="text" id="CourseDesEditId" class="form-control mb-4" placeholder="Course Description">
+                                <input type="text" id="CourseCodeEditId" class="form-control mb-4" placeholder="Course Code">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="CourseFeeEditId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseImageEditId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
                     </div>
@@ -101,10 +106,14 @@
                         <h5 class="mb-4">Add Course</h5>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" id="PaymentGuideDesAddId" class="form-control mb-4" placeholder="Payment Guide Description">
-                                <input type="text" id="PaymentGuidePriceAddId" class="form-control mb-4" placeholder="Payment Guide Price">
-                                <input type="text" id="PaymentGuideBannerAddId" class="form-control mb-4" placeholder="Payment Guide Banner">
+                            <div class="col-md-6">
+                                <input type="text" id="CourseTitleAddId" class="form-control mb-4" placeholder="Course Title">
+                                <input type="text" id="CourseDesAddId" class="form-control mb-4" placeholder="Course Description">
+                                <input type="text" id="CourseCodeAddId" class="form-control mb-4" placeholder="Course Code">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="CourseFeeAddId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
                     </div>
@@ -125,10 +134,10 @@
 @section('script')
     <script type="text/javascript">
 
-        getPaymentGuideData();
+        getCourseData();
 
-        function getPaymentGuideData(){
-            axios.get('/getPaymentGuideData')
+        function getCourseData(){
+            axios.get('/getCourseData')
                 .then(function (response){
 
                     if(response.status==200){
@@ -144,9 +153,10 @@
 
                             $('<tr>').html(
                                 "<td>" + jsonData[i].id + "</td>" +
-                                "<td>" + jsonData[i].banner + "</td>" +
+                                "<td>" + jsonData[i].title + "</td>" +
                                 "<td>" + jsonData[i].des +"</td>" +
-                                "<td>" + jsonData[i].price +"</td>" +
+                                "<td>" + jsonData[i].code +"</td>" +
+                                "<td>" + jsonData[i].fee +"</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
                                 "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
@@ -164,13 +174,13 @@
                         $('.EditBtn').click(function (){
                             let id=$(this).data('id');
                             $('#EditId').html(id);
-                            PaymentGuideEdit(id);
+                            CourseEdit(id);
                             $('#editModal').modal('show');
                         });
 
 
 
-                        // Payment Guide data table js
+                        // Course data table js
                         $('#SelectTable').DataTable();
                         $('.dataTables_length').addClass('bs-select');
                         //
@@ -190,15 +200,15 @@
         // Course Delete Confirm Btn
         $('#DeleteConfirmBtn').click(function (){
             let id=$('#DeleteId').html();
-            PaymentGuideDelete(id);
+            CourseDelete(id);
         });
 
         // Course Delete Method
-        function PaymentGuideDelete(DeleteId){
+        function CourseDelete(DeleteId){
 
             $('#DeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation.......
 
-            axios.post('/PaymentGuideDelete',{
+            axios.post('/CourseDelete',{
                 id:DeleteId
             })
                 .then(function (response){
@@ -207,7 +217,7 @@
                     if (response.status==200 && response.data==1){
                         $('#deleteModal').modal('hide');
                         toastr.success('Delete Success');
-                        getPaymentGuideData();
+                        getCourseData();
                     }
                     else{
                         $('#deleteModal').modal('hide');
@@ -221,9 +231,12 @@
         }
 
 
+
+
+
         // Each Course Edit Details
-        function PaymentGuideEdit(EditId){
-            axios.post('/getPaymentGuideDetails',{
+        function CourseEdit(EditId){
+            axios.post('/getCourseDetails',{
                 id:EditId
             })
                 .then(function (response){
@@ -231,12 +244,14 @@
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        let id= $('#EditId').html();
+                        var id= $('#EditId').html();
 
-                        let jsonData=response.data;
-                        $('#PaymentGuideDesEditId').val(jsonData[0].des);
-                        $('#PaymentGuidePriceEditId').val(jsonData[0].price);
-                        $('#PaymentGuideBannerEditId').val(jsonData[0].banner);
+                        var jsonData=response.data;
+                        $('#CourseTitleEditId').val(jsonData[0].title);
+                        $('#CourseDesEditId').val(jsonData[0].des);
+                        $('#CourseCodeEditId').val(jsonData[0].code);
+                        $('#CourseFeeEditId').val(jsonData[0].fee);
+                        $('#CourseImageEditId').val(jsonData[0].img);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -253,34 +268,44 @@
         //
         $('#editConfirmBtn').click(function (){
             let id= $('#EditId').html();
-            let des=$('#PaymentGuideDesEditId').val();
-            let price=$('#PaymentGuidePriceEditId').val();
-            let banner=$('#PaymentGuideBannerEditId').val();
+            let title=$('#CourseTitleEditId').val();
+            let des=$('#CourseDesEditId').val();
+            let code=$('#CourseCodeEditId').val();
+            let fee=$('#CourseFeeEditId').val();
+            let img=$('#CourseImageEditId').val();
 
-            PaymentGuideUpdate(id,des,price,banner);
+            CourseUpdate(id,title,des,code,fee,img);
         })
 
         //Course Update Method
-        function PaymentGuideUpdate(id,des,price,banner){
+        function CourseUpdate(id,title,des,code,fee,img){
 
-            if (des.length==0){
-                toastr.error('Payment Guide Des is Required !');
+            if (title.length==0){
+                toastr.error('Course Title is Required !');
             }
-            else if (price.length==0){
-                toastr.error('Payment Guide Price is Required !');
+            else if (des.length==0){
+                toastr.error('Course Description is Required !');
             }
-            else if (banner.length==0){
-                toastr.error('Payment Guide Banner is Required !');
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
+            }
+            else if (fee.length==0){
+                toastr.error('Course Fee is Required !');
+            }
+            else if (img.length==0){
+                toastr.error('Course Image is Required !');
             }
             else{
 
                 $('#editConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation.......
 
-                axios.post('/PaymentGuideUpdate',{
+                axios.post('/courseUpdate',{
                     id:id,
+                    title:title,
                     des:des,
-                    price:price,
-                    banner:banner
+                    code:code,
+                    fee:fee,
+                    img:img,
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
@@ -288,7 +313,7 @@
                         if (response.status==200 && response.data==1){
                             $('#editModal').modal('hide');
                             toastr.success('Update Success');
-                            getPaymentGuideData();
+                            getCourseData();
                         }
                         else{
                             $('#editModal').modal('hide');
@@ -313,33 +338,42 @@
         // Course Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
 
-            let des=$('#PaymentGuideDesAddId').val();
-            let price=$('#PaymentGuidePriceAddId').val();
-            let banner=$('#PaymentGuideBannerAddId').val();
+            let title=$('#CourseTitleAddId').val();
+            let des=$('#CourseDesAddId').val();
+            let code=$('#CourseCodeAddId').val();
+            let fee=$('#CourseFeeAddId').val();
+            let img=$('#CourseImageAddId').val();
 
-
-            PaymentGuideAdd(des,price,banner);
+            CourseAdd(title,des,code,fee,img);
         })
-        // Payment Guide Add Method
-        function PaymentGuideAdd(des,price,banner) {
+        // Course Add Method
+        function CourseAdd(title,des,code,fee,img) {
 
-            if (des.length==0){
-                toastr.error('Payment Guide Des is Required !');
+            if (title.length==0){
+                toastr.error('Course Title is Required !');
             }
-            else if (price.length==0){
-                toastr.error('Payment Guide Price is Required !');
+            else if (des.length==0){
+                toastr.error('Course Description is Required !');
             }
-            else if (banner.length==0){
-                toastr.error('Payment Guide Banner is Required !');
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
+            }
+            else if (fee.length==0){
+                toastr.error('Course Fee is Required !');
+            }
+            else if (img.length==0){
+                toastr.error('Course Image is Required !');
             }
             else{
 
                 $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
 
-                axios.post('/PaymentGuideAdd', {
+                axios.post('/CourseAdd', {
+                    title:title,
                     des:des,
-                    price:price,
-                    banner:banner
+                    code:code,
+                    fee:fee,
+                    img:img
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
@@ -347,16 +381,18 @@
                             if (response.data == 1) {
                                 $('#addModal').modal('hide');
                                 toastr.success('Add Success');
-                                getPaymentGuideData();
+                                getCourseData();
 
-                                $('#PaymentGuideDesAddId').val('');
-                                $('#PaymentGuidePriceAddId').val('');
-                                $('#PaymentGuideBannerAddId').val('');
+                                $('#CourseTitleAddId').val('');
+                                $('#CourseDesAddId').val('');
+                                $('#CourseCodeAddId').val('');
+                                $('#CourseFeeAddId').val('');
+                                $('#CourseImageAddId').val('');
 
                             } else {
                                 $('#addModal').modal('hide');
                                 toastr.error('Add Fail');
-                                getPaymentGuideData();
+                                getCourseData();
                             }
                         }
                         else{

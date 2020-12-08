@@ -6,16 +6,17 @@
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h3 class="text-center">Course Feature List</h3>
-                <button id="addNewBtnId" class="btn my-3 btn-sm btn-danger">Add New</button>
+                <h3 class="text-center">Course List</h3>
+                <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="th-sm">ID</th>
-                        <th class="th-sm">Course Feature Image</th>
-                        <th class="th-sm">Course Feature Title</th>
-                        <th class="th-sm">Course Feature Des</th>
+                        <th class="th-sm">Course Title</th>
+                        <th class="th-sm">Course Description</th>
+                        <th class="th-sm">Course Code</th>
+                        <th class="th-sm">Course Fee</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -70,10 +71,14 @@
                     <div id="EditForm" class="d-none w-100">
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" id="CourseFeatureTitleEditId" class="form-control mb-4" placeholder="Course Feature Title">
-                                <input type="text" id="CourseFeatureDesEditId" class="form-control mb-4" placeholder="Course Feature Description">
-                                <input type="text" id="CourseFeatureImageEditId" class="form-control mb-4" placeholder="Course Feature Image">
+                            <div class="col-md-6">
+                                <input type="text" id="CourseTitleEditId" class="form-control mb-4" placeholder="Course Title">
+                                <input type="text" id="CourseDesEditId" class="form-control mb-4" placeholder="Course Description">
+                                <input type="text" id="CourseCodeEditId" class="form-control mb-4" placeholder="Course Code">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="CourseFeeEditId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseImageEditId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
                     </div>
@@ -101,10 +106,14 @@
                         <h5 class="mb-4">Add Course</h5>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="text" id="CourseFeatureTitleAddId" class="form-control mb-4" placeholder="Course Feature Title">
-                                <input type="text" id="CourseFeatureDesAddId" class="form-control mb-4" placeholder="Course Feature Description">
-                                <input type="text" id="CourseFeatureImageAddId" class="form-control mb-4" placeholder="Course Feature Image">
+                            <div class="col-md-6">
+                                <input type="text" id="CourseTitleAddId" class="form-control mb-4" placeholder="Course Title">
+                                <input type="text" id="CourseDesAddId" class="form-control mb-4" placeholder="Course Description">
+                                <input type="text" id="CourseCodeAddId" class="form-control mb-4" placeholder="Course Code">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="CourseFeeAddId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
                     </div>
@@ -125,10 +134,10 @@
 @section('script')
     <script type="text/javascript">
 
-        getCourseFeatureData();
+        getCourseData();
 
-        function getCourseFeatureData(){
-            axios.get('/getCourseFeatureData')
+        function getCourseData(){
+            axios.get('/getCourseData')
                 .then(function (response){
 
                     if(response.status==200){
@@ -144,9 +153,10 @@
 
                             $('<tr>').html(
                                 "<td>" + jsonData[i].id + "</td>" +
-                                "<td>" + jsonData[i].img + "</td>" +
                                 "<td>" + jsonData[i].title + "</td>" +
                                 "<td>" + jsonData[i].des +"</td>" +
+                                "<td>" + jsonData[i].code +"</td>" +
+                                "<td>" + jsonData[i].fee +"</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
                                 "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
@@ -164,7 +174,7 @@
                         $('.EditBtn').click(function (){
                             let id=$(this).data('id');
                             $('#EditId').html(id);
-                            CourseFeatureEdit(id);
+                            CourseEdit(id);
                             $('#editModal').modal('show');
                         });
 
@@ -190,15 +200,15 @@
         // Course Delete Confirm Btn
         $('#DeleteConfirmBtn').click(function (){
             let id=$('#DeleteId').html();
-            CourseFeatureDelete(id);
+            CourseDelete(id);
         });
 
         // Course Delete Method
-        function CourseFeatureDelete(DeleteId){
+        function CourseDelete(DeleteId){
 
             $('#DeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation.......
 
-            axios.post('/CourseFeatureDelete',{
+            axios.post('/CourseDelete',{
                 id:DeleteId
             })
                 .then(function (response){
@@ -207,7 +217,7 @@
                     if (response.status==200 && response.data==1){
                         $('#deleteModal').modal('hide');
                         toastr.success('Delete Success');
-                        getCourseFeatureData();
+                        getCourseData();
                     }
                     else{
                         $('#deleteModal').modal('hide');
@@ -225,8 +235,8 @@
 
 
         // Each Course Edit Details
-        function CourseFeatureEdit(EditId){
-            axios.post('/getCourseFeatureDetails',{
+        function CourseEdit(EditId){
+            axios.post('/getCourseDetails',{
                 id:EditId
             })
                 .then(function (response){
@@ -237,9 +247,11 @@
                         var id= $('#EditId').html();
 
                         var jsonData=response.data;
-                        $('#CourseFeatureTitleEditId').val(jsonData[0].title);
-                        $('#CourseFeatureDesEditId').val(jsonData[0].des);
-                        $('#CourseFeatureImageEditId').val(jsonData[0].img);
+                        $('#CourseTitleEditId').val(jsonData[0].title);
+                        $('#CourseDesEditId').val(jsonData[0].des);
+                        $('#CourseCodeEditId').val(jsonData[0].code);
+                        $('#CourseFeeEditId').val(jsonData[0].fee);
+                        $('#CourseImageEditId').val(jsonData[0].img);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -256,21 +268,29 @@
         //
         $('#editConfirmBtn').click(function (){
             let id= $('#EditId').html();
-            let title=$('#CourseFeatureTitleEditId').val();
-            let des=$('#CourseFeatureDesEditId').val();
-            let img=$('#CourseFeatureImageEditId').val();
+            let title=$('#CourseTitleEditId').val();
+            let des=$('#CourseDesEditId').val();
+            let code=$('#CourseCodeEditId').val();
+            let fee=$('#CourseFeeEditId').val();
+            let img=$('#CourseImageEditId').val();
 
-            CourseUpdate(id,title,des,img);
+            CourseUpdate(id,title,des,code,fee,img);
         })
 
         //Course Update Method
-        function CourseUpdate(id,title,des,img){
+        function CourseUpdate(id,title,des,code,fee,img){
 
             if (title.length==0){
                 toastr.error('Course Title is Required !');
             }
             else if (des.length==0){
                 toastr.error('Course Description is Required !');
+            }
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
+            }
+            else if (fee.length==0){
+                toastr.error('Course Fee is Required !');
             }
             else if (img.length==0){
                 toastr.error('Course Image is Required !');
@@ -279,10 +299,12 @@
 
                 $('#editConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation.......
 
-                axios.post('/courseFeatureUpdate',{
+                axios.post('/courseUpdate',{
                     id:id,
                     title:title,
                     des:des,
+                    code:code,
+                    fee:fee,
                     img:img,
                 })
                     .then(function (response){
@@ -291,7 +313,7 @@
                         if (response.status==200 && response.data==1){
                             $('#editModal').modal('hide');
                             toastr.success('Update Success');
-                            getCourseFeatureData();
+                            getCourseData();
                         }
                         else{
                             $('#editModal').modal('hide');
@@ -316,14 +338,16 @@
         // Course Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
 
-            let title=$('#CourseFeatureTitleAddId').val();
-            let des=$('#CourseFeatureDesAddId').val();
-            let img=$('#CourseFeatureImageAddId').val();
+            let title=$('#CourseTitleAddId').val();
+            let des=$('#CourseDesAddId').val();
+            let code=$('#CourseCodeAddId').val();
+            let fee=$('#CourseFeeAddId').val();
+            let img=$('#CourseImageAddId').val();
 
-            CourseFeatureAdd(title,des,img);
+           CourseAdd(title,des,code,fee,img);
         })
         // Course Add Method
-        function CourseFeatureAdd(title,des,img) {
+        function CourseAdd(title,des,code,fee,img) {
 
             if (title.length==0){
                 toastr.error('Course Title is Required !');
@@ -331,15 +355,24 @@
             else if (des.length==0){
                 toastr.error('Course Description is Required !');
             }
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
+            }
+            else if (fee.length==0){
+                toastr.error('Course Fee is Required !');
+            }
             else if (img.length==0){
                 toastr.error('Course Image is Required !');
             }
             else{
+
                 $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
 
-                axios.post('/CourseFeatureAdd', {
+                axios.post('/CourseAdd', {
                     title:title,
                     des:des,
+                    code:code,
+                    fee:fee,
                     img:img
                 })
                     .then(function(response) {
@@ -348,16 +381,18 @@
                             if (response.data == 1) {
                                 $('#addModal').modal('hide');
                                 toastr.success('Add Success');
-                                getCourseFeatureData();
+                                getCourseData();
 
-                                $('#CourseFeatureTitleAddId').val('');
-                                $('#CourseFeatureDesAddId').val('');
-                                $('#CourseFeatureImageAddId').val('');
+                                $('#CourseTitleAddId').val('');
+                                $('#CourseDesAddId').val('');
+                                $('#CourseCodeAddId').val('');
+                                $('#CourseFeeAddId').val('');
+                                $('#CourseImageAddId').val('');
 
                             } else {
                                 $('#addModal').modal('hide');
                                 toastr.error('Add Fail');
-                                getCourseFeatureData();
+                                getCourseData();
                             }
                         }
                         else{
@@ -375,4 +410,3 @@
 
     </script>
 @endsection
-

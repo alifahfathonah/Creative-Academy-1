@@ -1,21 +1,21 @@
 @extends('Layout.app')
-@section('title','Teacher')
+@section('title','Payment Guide')
 @section('content')
+
 
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h3 class="text-center">All Teacher List</h3>
-                <button id="addNewBtnId" class="btn my-3 btn-sm btn-danger">Add New</button>
+                <h3 class="text-center">Payment Guide</h3>
+                <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="th-sm">ID</th>
-                        <th class="th-sm">Teacher Name</th>
-                        <th class="th-sm">Teacher Details</th>
-                        <th class="th-sm">Teacher Email</th>
-                        <th class="th-sm">Teacher Phone</th>
+                        <th class="th-sm">Payment Des</th>
+                        <th class="th-sm">Payment Price</th>
+                        <th class="th-sm">Payment Banner</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -59,7 +59,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title w-100 mx-4" id="myModalLabel">Service Update Details</h5>
+                    <h5 class="modal-title w-100 mx-4" id="myModalLabel">Course Update</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -70,12 +70,11 @@
                     <div id="EditForm" class="d-none w-100">
 
                         <div class="row">
-
-                            <input type="text" id="TeacherNameEditId" class="form-control mb-4" placeholder="Teacher Name">
-                            <input type="text" id="TeacherDetailsEditId" class="form-control mb-4" placeholder="Teacher Details">
-                            <input type="text" id="TeacherEmailEditId" class="form-control mb-4" placeholder="Teacher Email">
-                            <input type="text" id="TeacherPhoneEditId" class="form-control mb-4" placeholder="Teacher Phone">
-
+                            <div class="col-md-12">
+                                <input type="text" id="PaymentGuideDesEditId" class="form-control mb-4" placeholder="Payment Guide Description">
+                                <input type="text" id="PaymentGuidePriceEditId" class="form-control mb-4" placeholder="Payment Guide Price">
+                                <input type="text" id="PaymentGuideBannerEditId" class="form-control mb-4" placeholder="Payment Guide Banner">
+                            </div>
                         </div>
                     </div>
 
@@ -99,15 +98,14 @@
             <div class="modal-content">
                 <div class="modal-body p-5 text-center">
                     <div id="AddForm" class=" w-100">
-                        <h5 class="mb-4">Add Teacher</h5>
+                        <h5 class="mb-4">Add Course</h5>
 
                         <div class="row">
-
-                            <input type="text" id="TeacherNameAddId" class="form-control mb-4" placeholder="Teacher Name">
-                            <input type="text" id="TeacherDetailsAddId" class="form-control mb-4" placeholder="Teacher Details">
-                            <input type="text" id="TeacherEmailAddId" class="form-control mb-4" placeholder="Teacher Email">
-                            <input type="text" id="TeacherPhoneAddId" class="form-control mb-4" placeholder="Teacher Phone">
-
+                            <div class="col-md-12">
+                                <input type="text" id="PaymentGuideDesAddId" class="form-control mb-4" placeholder="Payment Guide Description">
+                                <input type="text" id="PaymentGuidePriceAddId" class="form-control mb-4" placeholder="Payment Guide Price">
+                                <input type="text" id="PaymentGuideBannerAddId" class="form-control mb-4" placeholder="Payment Guide Banner">
+                            </div>
                         </div>
                     </div>
 
@@ -127,10 +125,10 @@
 @section('script')
     <script type="text/javascript">
 
-        getTeacherData();
+        getPaymentGuideData();
 
-        function getTeacherData(){
-            axios.get('/getTeacherData')
+        function getPaymentGuideData(){
+            axios.get('/getPaymentGuideData')
                 .then(function (response){
 
                     if(response.status==200){
@@ -141,37 +139,38 @@
                         $('#SelectTable').DataTable().destroy();
                         $('#MainTableData').empty();
 
-                        var jsonData=response.data;
+                        let jsonData=response.data;
                         $.each(jsonData, function (i, item){
 
                             $('<tr>').html(
-                                "<td>" + jsonData[i].Teacher_Id + "</td>" +
-                                "<td>" + jsonData[i].Teacher_Name + "</td>" +
-                                "<td>" + jsonData[i].Teacher_Details +"</td>" +
-                                "<td>" + jsonData[i].Teacher_Email +"</td>" +
-                                "<td>" + jsonData[i].Teacher_Phone +"</td>" +
-                                "<td><a class='EditBtn' data-id=" + jsonData[i].Teacher_Id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
-                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].Teacher_Id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
+                                "<td>" + jsonData[i].id + "</td>" +
+                                "<td>" + jsonData[i].banner + "</td>" +
+                                "<td>" + jsonData[i].des +"</td>" +
+                                "<td>" + jsonData[i].price +"</td>" +
+                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
+                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
                         });
 
                         // Course Table Delete Icon Click
                         $('.DeleteBtn').click(function (){
-                            var Teacher_Id=$(this).data('id');
-                            $('#DeleteId').html(Teacher_Id);
+                            let id=$(this).data('id');
+                            $('#DeleteId').html(id);
                             $('#deleteModal').modal('show');
                         });
 
 
                         // Course Table Edit Icon Click
                         $('.EditBtn').click(function (){
-                            var Teacher_Id=$(this).data('id');
-                            $('#EditId').html(Teacher_Id);
-                            TeacherEdit(Teacher_Id);
+                            let id=$(this).data('id');
+                            $('#EditId').html(id);
+                            PaymentGuideEdit(id);
                             $('#editModal').modal('show');
                         });
 
-                        // Course data table js
+
+
+                        // Payment Guide data table js
                         $('#SelectTable').DataTable();
                         $('.dataTables_length').addClass('bs-select');
                         //
@@ -190,17 +189,17 @@
 
         // Course Delete Confirm Btn
         $('#DeleteConfirmBtn').click(function (){
-            var Teacher_Id=$('#DeleteId').html();
-            TeacherDelete(Teacher_Id);
+            let id=$('#DeleteId').html();
+            PaymentGuideDelete(id);
         });
 
         // Course Delete Method
-        function TeacherDelete(Teacher_Id){
+        function PaymentGuideDelete(DeleteId){
 
             $('#DeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation.......
 
-            axios.post('/TeacherDelete',{
-                Teacher_Id:Teacher_Id
+            axios.post('/PaymentGuideDelete',{
+                id:DeleteId
             })
                 .then(function (response){
                     $('#DeleteConfirmBtn').html("Yes");
@@ -208,7 +207,7 @@
                     if (response.status==200 && response.data==1){
                         $('#deleteModal').modal('hide');
                         toastr.success('Delete Success');
-                        getTeacherData();
+                        getPaymentGuideData();
                     }
                     else{
                         $('#deleteModal').modal('hide');
@@ -222,28 +221,22 @@
         }
 
 
-
-
-
         // Each Course Edit Details
-        function TeacherEdit(Teacher_Id){
-            axios.post('/getTeacherDetails',{
-                Teacher_Id:Teacher_Id
+        function PaymentGuideEdit(EditId){
+            axios.post('/getPaymentGuideDetails',{
+                id:EditId
             })
                 .then(function (response){
                     if (response.status==200){
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        var Teacher_Id= $('#EditId').html();
+                        let id= $('#EditId').html();
 
-                        var jsonData=response.data;
-
-                        $('#TeacherNameEditId').val(jsonData[0].Teacher_Name);
-                        $('#TeacherDetailsEditId').val(jsonData[0].Teacher_Details);
-                        $('#TeacherEmailEditId').val(jsonData[0].Teacher_Email);
-                        $('#TeacherPhoneEditId').val(jsonData[0].Teacher_Phone);
-
+                        let jsonData=response.data;
+                        $('#PaymentGuideDesEditId').val(jsonData[0].des);
+                        $('#PaymentGuidePriceEditId').val(jsonData[0].price);
+                        $('#PaymentGuideBannerEditId').val(jsonData[0].banner);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -259,41 +252,35 @@
 
         //
         $('#editConfirmBtn').click(function (){
+            let id= $('#EditId').html();
+            let des=$('#PaymentGuideDesEditId').val();
+            let price=$('#PaymentGuidePriceEditId').val();
+            let banner=$('#PaymentGuideBannerEditId').val();
 
-            var Teacher_Id= $('#EditId').html();
-            var Teacher_Name=$('#TeacherNameEditId').val();
-            var Teacher_Details=$('#TeacherDetailsEditId').val();
-            var Teacher_Email=$('#TeacherEmailEditId').val();
-            var Teacher_Phone=$('#TeacherPhoneEditId').val();
-
-            TeacherUpdate(Teacher_Id,Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone);
+            PaymentGuideUpdate(id,des,price,banner);
         })
 
         //Course Update Method
-        function TeacherUpdate(Teacher_Id,Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone){
+        function PaymentGuideUpdate(id,des,price,banner){
 
-            if (Teacher_Name.length==0){
-                toastr.error('Teacher Name is Required !');
+            if (des.length==0){
+                toastr.error('Payment Guide Des is Required !');
             }
-            else if (Teacher_Details.length==0){
-                toastr.error('Teacher Details is Required !');
+            else if (price.length==0){
+                toastr.error('Payment Guide Price is Required !');
             }
-            else if (Teacher_Email.length==0){
-                toastr.error('Teacher Email is Required !');
-            }
-            else if (Teacher_Phone.length==0){
-                toastr.error('Teacher Phone is Required !');
+            else if (banner.length==0){
+                toastr.error('Payment Guide Banner is Required !');
             }
             else{
 
                 $('#editConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation.......
 
-                axios.post('/TeacherUpdate',{
-                    Teacher_Id:Teacher_Id,
-                    Teacher_Name:Teacher_Name,
-                    Teacher_Details:Teacher_Details,
-                    Teacher_Email:Teacher_Email,
-                    Teacher_Phone:Teacher_Phone
+                axios.post('/PaymentGuideUpdate',{
+                    id:id,
+                    des:des,
+                    price:price,
+                    banner:banner
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
@@ -301,7 +288,7 @@
                         if (response.status==200 && response.data==1){
                             $('#editModal').modal('hide');
                             toastr.success('Update Success');
-                            getTeacherData();
+                            getPaymentGuideData();
                         }
                         else{
                             $('#editModal').modal('hide');
@@ -310,7 +297,7 @@
                     })
                     .catch(function (error){
                         $('#editModal').modal('hide');
-                        toastr.error('Somethinf Went Wrong !');
+                        toastr.error('Something Went Wrong !');
                     })
             }
 
@@ -326,37 +313,33 @@
         // Course Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
 
-            var Teacher_Name=$('#TeacherNameAddId').val();
-            var Teacher_Details=$('#TeacherDetailsAddId').val();
-            var Teacher_Email=$('#TeacherEmailAddId').val();
-            var Teacher_Phone=$('#TeacherPhoneAddId').val();
+            let des=$('#PaymentGuideDesAddId').val();
+            let price=$('#PaymentGuidePriceAddId').val();
+            let banner=$('#PaymentGuideBannerAddId').val();
 
-            TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone);
+
+            PaymentGuideAdd(des,price,banner);
         })
-        // Course Add Method
-        function TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone) {
+        // Payment Guide Add Method
+        function PaymentGuideAdd(des,price,banner) {
 
-            if (Teacher_Name.length==0){
-                toastr.error('Teacher Name is Required !');
+            if (des.length==0){
+                toastr.error('Payment Guide Des is Required !');
             }
-            else if (Teacher_Details.length==0){
-                toastr.error('Teacher Details is Required !');
+            else if (price.length==0){
+                toastr.error('Payment Guide Price is Required !');
             }
-            else if (Teacher_Email.length==0){
-                toastr.error('Teacher Email is Required !');
-            }
-            else if (Teacher_Phone.length==0){
-                toastr.error('Teacher Phone is Required !');
+            else if (banner.length==0){
+                toastr.error('Payment Guide Banner is Required !');
             }
             else{
 
                 $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
 
-                axios.post('/TeacherAdd', {
-                    Teacher_Name:Teacher_Name,
-                    Teacher_Details:Teacher_Details,
-                    Teacher_Email:Teacher_Email,
-                    Teacher_Phone:Teacher_Phone
+                axios.post('/PaymentGuideAdd', {
+                    des:des,
+                    price:price,
+                    banner:banner
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
@@ -364,17 +347,16 @@
                             if (response.data == 1) {
                                 $('#addModal').modal('hide');
                                 toastr.success('Add Success');
-                                getTeacherData();
+                                getPaymentGuideData();
 
-                                $('#TeacherNameAddId').val('');
-                                $('#TeacherDetailsAddId').val('');
-                                $('#TeacherEmailAddId').val('');
-                                $('#TeacherPhoneAddId').val('');
+                                $('#PaymentGuideDesAddId').val('');
+                                $('#PaymentGuidePriceAddId').val('');
+                                $('#PaymentGuideBannerAddId').val('');
 
                             } else {
                                 $('#addModal').modal('hide');
                                 toastr.error('Add Fail');
-                                getTeacherData();
+                                getPaymentGuideData();
                             }
                         }
                         else{
