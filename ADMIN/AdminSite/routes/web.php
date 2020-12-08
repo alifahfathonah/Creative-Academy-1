@@ -42,12 +42,21 @@ Route::get('/getLoginInfoStudentData','LoginInfoStudentController@getLoginInfoSt
 
 
 //For Teacher List
-Route::get('/TeacherList','TeacherController@TeacherIndex');
-Route::get('/getTeacherData','TeacherController@getTeacherData');
-Route::post('/TeacherDelete','TeacherController@TeacherDelete');
-Route::post('/getTeacherDetails','TeacherController@getTeacherDetails');
-Route::post('/TeacherUpdate','TeacherController@TeacherUpdate');
-Route::post('/TeacherAdd','TeacherController@TeacherAdd');
+Route::get('/TeacherList','TeacherController@TeacherIndex')->middleware('loginCheck');
+Route::get('/getTeacherData','TeacherController@getTeacherData')->middleware('loginCheck');
+Route::post('/TeacherDelete','TeacherController@TeacherDelete')->middleware('loginCheck');
+Route::post('/getTeacherDetails','TeacherController@getTeacherDetails')->middleware('loginCheck');
+Route::post('/TeacherUpdate','TeacherController@TeacherUpdate')->middleware('loginCheck');
+Route::post('/TeacherAdd','TeacherController@TeacherAdd')->middleware('loginCheck');
+
+
+//For Notice List
+Route::get('/Notice','NoticeController@Notice')->middleware('loginCheck');
+Route::get('/getNoticeData','NoticeController@getNoticeData')->middleware('loginCheck');
+Route::post('/NoticeDelete','NoticeController@NoticeDelete')->middleware('loginCheck');
+Route::post('/getNoticeDetails','NoticeController@getNoticeDetails')->middleware('loginCheck');
+Route::post('/NoticeUpdate','NoticeController@NoticeUpdate')->middleware('loginCheck');
+Route::post('/NoticeAdd','NoticeController@NoticeAdd')->middleware('loginCheck');
 
 //Admin Login
 Route::get('/Login','LoginController@LoginPage');

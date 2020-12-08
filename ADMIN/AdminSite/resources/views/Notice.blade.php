@@ -1,22 +1,19 @@
 @extends('Layout.app')
-@section('title','All Course')
+@section('title','Notice')
 @section('content')
 
 
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h3 class="text-center">Course List</h3>
+                <h3 class="text-center">Notice</h3>
                 <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="th-sm">ID</th>
-                        <th class="th-sm">Course Title</th>
-                        <th class="th-sm">Course Description</th>
-                        <th class="th-sm">Course Code</th>
-                        <th class="th-sm">Course Fee</th>
+                        <th class="th-sm">Notice Description</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -60,7 +57,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title w-100 mx-4" id="myModalLabel">Course Update</h5>
+                    <h5 class="modal-title w-100 mx-4" id="myModalLabel">Notice Update</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,14 +68,8 @@
                     <div id="EditForm" class="d-none w-100">
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" id="CourseTitleEditId" class="form-control mb-4" placeholder="Course Title">
-                                <input type="text" id="CourseDesEditId" class="form-control mb-4" placeholder="Course Description">
-                                <input type="text" id="CourseCodeEditId" class="form-control mb-4" placeholder="Course Code">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" id="CourseFeeEditId" class="form-control mb-4" placeholder="Course Fee">
-                                <input type="text" id="CourseImageEditId" class="form-control mb-4" placeholder="Course Image">
+                            <div class="col-md-12">
+                                <input type="text" id="NoticeDesEditId" class="form-control mb-4" placeholder="Notice Description">
                             </div>
                         </div>
                     </div>
@@ -88,7 +79,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancle</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
                     <button id="editConfirmBtn" type="button" class="btn btn-sm btn-danger">Save</button>
                 </div>
             </div>
@@ -103,17 +94,11 @@
             <div class="modal-content">
                 <div class="modal-body p-5 text-center">
                     <div id="AddForm" class=" w-100">
-                        <h5 class="mb-4">Add Course</h5>
+                        <h5 class="mb-4">Add Notice</h5>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" id="CourseTitleAddId" class="form-control mb-4" placeholder="Course Title">
-                                <input type="text" id="CourseDesAddId" class="form-control mb-4" placeholder="Course Description">
-                                <input type="text" id="CourseCodeAddId" class="form-control mb-4" placeholder="Course Code">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" id="CourseFeeAddId" class="form-control mb-4" placeholder="Course Fee">
-                                <input type="text" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
+                            <div class="col-md-12">
+                                <input type="text" id="NoticeDesAddId" class="form-control mb-4" placeholder="Notice Description">
                             </div>
                         </div>
                     </div>
@@ -134,10 +119,10 @@
 @section('script')
     <script type="text/javascript">
 
-        getCourseData();
+        getNoticeData();
 
-        function getCourseData(){
-            axios.get('/getCourseData')
+        function getNoticeData(){
+            axios.get('/getNoticeData')
                 .then(function (response){
 
                     if(response.status==200){
@@ -153,16 +138,13 @@
 
                             $('<tr>').html(
                                 "<td>" + jsonData[i].id + "</td>" +
-                                "<td>" + jsonData[i].title + "</td>" +
                                 "<td>" + jsonData[i].des +"</td>" +
-                                "<td>" + jsonData[i].code +"</td>" +
-                                "<td>" + jsonData[i].fee +"</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
                                 "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
                         });
 
-                        // Course Table Delete Icon Click
+                        // Notice Table Delete Icon Click
                         $('.DeleteBtn').click(function (){
                             let id=$(this).data('id');
                             $('#DeleteId').html(id);
@@ -170,17 +152,15 @@
                         });
 
 
-                        // Course Table Edit Icon Click
+                        // Notice Table Edit Icon Click
                         $('.EditBtn').click(function (){
                             let id=$(this).data('id');
                             $('#EditId').html(id);
-                            CourseEdit(id);
+                            NoticeEdit(id);
                             $('#editModal').modal('show');
                         });
 
-
-
-                        // Course data table js
+                        // Notice data table js
                         $('#SelectTable').DataTable();
                         $('.dataTables_length').addClass('bs-select');
                         //
@@ -197,18 +177,18 @@
                 })
         }
 
-        // Course Delete Confirm Btn
+        // Notice Delete Confirm Btn
         $('#DeleteConfirmBtn').click(function (){
             let id=$('#DeleteId').html();
-            CourseDelete(id);
+            NoticeDelete(id);
         });
 
-        // Course Delete Method
-        function CourseDelete(DeleteId){
+        // Notice Delete Method
+        function NoticeDelete(DeleteId){
 
             $('#DeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation.......
 
-            axios.post('/CourseDelete',{
+            axios.post('/NoticeDelete',{
                 id:DeleteId
             })
                 .then(function (response){
@@ -217,7 +197,7 @@
                     if (response.status==200 && response.data==1){
                         $('#deleteModal').modal('hide');
                         toastr.success('Delete Success');
-                        getCourseData();
+                        getNoticeData();
                     }
                     else{
                         $('#deleteModal').modal('hide');
@@ -232,11 +212,9 @@
 
 
 
-
-
-        // Each Course Edit Details
-        function CourseEdit(EditId){
-            axios.post('/getCourseDetails',{
+        // Each Notice Edit Details
+        function NoticeEdit(EditId){
+            axios.post('/getNoticeDetails',{
                 id:EditId
             })
                 .then(function (response){
@@ -244,14 +222,10 @@
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        var id= $('#EditId').html();
+                        let id= $('#EditId').html();
 
-                        var jsonData=response.data;
-                        $('#CourseTitleEditId').val(jsonData[0].title);
-                        $('#CourseDesEditId').val(jsonData[0].des);
-                        $('#CourseCodeEditId').val(jsonData[0].code);
-                        $('#CourseFeeEditId').val(jsonData[0].fee);
-                        $('#CourseImageEditId').val(jsonData[0].img);
+                        let jsonData=response.data;
+                        $('#NoticeDesEditId').val(jsonData[0].des);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -268,44 +242,24 @@
         //
         $('#editConfirmBtn').click(function (){
             let id= $('#EditId').html();
-            let title=$('#CourseTitleEditId').val();
-            let des=$('#CourseDesEditId').val();
-            let code=$('#CourseCodeEditId').val();
-            let fee=$('#CourseFeeEditId').val();
-            let img=$('#CourseImageEditId').val();
+            let des=$('#NoticeDesEditId').val();
 
-            CourseUpdate(id,title,des,code,fee,img);
+            CourseUpdate(id,des);
         })
 
         //Course Update Method
-        function CourseUpdate(id,title,des,code,fee,img){
+        function CourseUpdate(id,des){
 
-            if (title.length==0){
-                toastr.error('Course Title is Required !');
-            }
-            else if (des.length==0){
-                toastr.error('Course Description is Required !');
-            }
-            else if (code.length==0){
-                toastr.error('Course Code is Required !');
-            }
-            else if (fee.length==0){
-                toastr.error('Course Fee is Required !');
-            }
-            else if (img.length==0){
-                toastr.error('Course Image is Required !');
+            if (des.length==0){
+                toastr.error('Notice Description is Required !');
             }
             else{
 
                 $('#editConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation.......
 
-                axios.post('/courseUpdate',{
+                axios.post('/NoticeUpdate',{
                     id:id,
-                    title:title,
                     des:des,
-                    code:code,
-                    fee:fee,
-                    img:img,
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
@@ -313,7 +267,7 @@
                         if (response.status==200 && response.data==1){
                             $('#editModal').modal('hide');
                             toastr.success('Update Success');
-                            getCourseData();
+                            getNoticeData();
                         }
                         else{
                             $('#editModal').modal('hide');
@@ -330,50 +284,30 @@
 
 
 
-        // Course Add New btn Click
+        // Notice Add New btn Click
         $('#addNewBtnId').click(function(){
             $('#addModal').modal('show');
         });
 
-        // Course Add Modal Save Btn
+        // Notice Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
 
-            let title=$('#CourseTitleAddId').val();
-            let des=$('#CourseDesAddId').val();
-            let code=$('#CourseCodeAddId').val();
-            let fee=$('#CourseFeeAddId').val();
-            let img=$('#CourseImageAddId').val();
+            let des=$('#NoticeDesAddId').val();
 
-            CourseAdd(title,des,code,fee,img);
+            NoticeAdd(des);
         })
-        // Course Add Method
-        function CourseAdd(title,des,code,fee,img) {
+        // Notice Add Method
+        function NoticeAdd(des) {
 
-            if (title.length==0){
-                toastr.error('Course Title is Required !');
-            }
-            else if (des.length==0){
+            if (des.length==0){
                 toastr.error('Course Description is Required !');
-            }
-            else if (code.length==0){
-                toastr.error('Course Code is Required !');
-            }
-            else if (fee.length==0){
-                toastr.error('Course Fee is Required !');
-            }
-            else if (img.length==0){
-                toastr.error('Course Image is Required !');
             }
             else{
 
                 $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
 
-                axios.post('/CourseAdd', {
-                    title:title,
+                axios.post('/NoticeAdd', {
                     des:des,
-                    code:code,
-                    fee:fee,
-                    img:img
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
@@ -381,18 +315,14 @@
                             if (response.data == 1) {
                                 $('#addModal').modal('hide');
                                 toastr.success('Add Success');
-                                getCourseData();
+                                getNoticeData();
 
-                                $('#CourseTitleAddId').val('');
-                                $('#CourseDesAddId').val('');
-                                $('#CourseCodeAddId').val('');
-                                $('#CourseFeeAddId').val('');
-                                $('#CourseImageAddId').val('');
+                                $('#NoticeDesAddId').val('');
 
                             } else {
                                 $('#addModal').modal('hide');
                                 toastr.error('Add Fail');
-                                getCourseData();
+                                getNoticeData();
                             }
                         }
                         else{
