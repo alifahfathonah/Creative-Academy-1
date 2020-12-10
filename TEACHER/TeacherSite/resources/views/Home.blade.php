@@ -1,5 +1,5 @@
 @extends('Layout.app')
-
+@section('title','Dashboard Summary')
 @section('content')
 
 
@@ -9,8 +9,8 @@
         <div class="col-md-3 py-2">
         	<div class="card card-color">
         		<div class="card-body">
-        			<h3 class="count-card-title">{{$TotalVisitor}}</h3>
-					<h3 class="count-card-text">Total Visitor</h3>
+        			<h4 class="count-card-title">{{$TotalVisitor}}</h4>
+					<h5 class="count-card-text">Total Visitor</h5>
         		</div>
         	</div>
         </div>

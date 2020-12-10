@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MoreSeriesModel extends Model
+class FileDocModel extends Model
 {
-    public $table = 'more_series';
+    public $table = 'file_doc';
     public $primaryKey = 'id';
     public $incrementing = true;
-    public $keyType = 'int';
+    protected $keyType = 'int';
     public $timestamps = false;
 }
