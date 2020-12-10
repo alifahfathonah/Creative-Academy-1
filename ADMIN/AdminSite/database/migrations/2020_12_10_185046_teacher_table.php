@@ -19,6 +19,7 @@ class TeacherTable extends Migration
             $table->string('Teacher_Details');
             $table->string('Teacher_Email');
             $table->string('Teacher_Phone');
+            $table->string('password');
         });
     }
 

@@ -1,5 +1,5 @@
 @extends('Layout.app')
-@section('title','All Course')
+@section('title','Course Feature')
 @section('content')
 
 

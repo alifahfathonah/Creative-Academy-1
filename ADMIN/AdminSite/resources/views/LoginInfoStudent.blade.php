@@ -1,5 +1,5 @@
 @extends('Layout.app')
-@section('title','Login Info Student')
+@section('title','Login Student')
 @section('content')
 
 

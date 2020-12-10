@@ -39,7 +39,7 @@ class RegistrationController extends Controller
                     $paramArray = array('userName' => "01987210026",
                         'userPassword' => "43912",
                         'mobileNumber' => trim($mobile),
-                        'smsText' => "From:Rabbil Hasan - Thank you for registering in the Laravel Tutorial Series. You will receive a confirmation SMS shortly. After confirmation your account will be activated and you will be able to login.",
+                        'smsText' => "Thank you for registering in the Laravel Tutorial Series. You will receive a confirmation SMS shortly. After confirmation your account will be activated and you will be able to login.",
                         'type' => "TEXT"
                     );
                     $value = $soapClient->__call("OneToOne", array($paramArray));
