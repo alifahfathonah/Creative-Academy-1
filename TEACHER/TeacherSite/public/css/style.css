@@ -5,3 +5,16 @@ padding: 1% 1% 1% 1% ;
 	width:60px;
 	height:auto;
 }
+
+.btn-color{
+    background-color: #00bb18;
+    color: white;
+}
+
+.edit-btn-color{
+    color: darkgreen;
+}
+
+.delete-btn-color{
+    color: darkred;
+}
