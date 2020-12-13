@@ -196,6 +196,8 @@
       <workItem from="1607491955168" duration="1274000" />
       <workItem from="1607533141536" duration="6000" />
       <workItem from="1607625860348" duration="1131000" />
+      <workItem from="1607799310914" duration="2527000" />
+      <workItem from="1607829376272" duration="4004000" />
     </task>
     <servers />
   </component>
@@ -218,10 +220,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607424611138">
+    <state x="431" y="206" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607803943419">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
-    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1366.728@0.40.1366.728" timestamp="1607424611138" />
+    <state x="431" y="206" key="#com.intellij.fileTypes.FileTypeChooser/0.40.1366.728@0.40.1366.728" timestamp="1607803943419" />
+    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607800072614">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1366.728@0.40.1366.728" timestamp="1607800072614" />
     <state x="517" y="327" key="NewPhpFileDialog" timestamp="1607422274089">
       <screen x="0" y="40" width="1366" height="728" />
     </state>

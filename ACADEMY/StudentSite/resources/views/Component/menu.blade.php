@@ -10,13 +10,21 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link nav-font" href="{{url('courses')}}">COURSES</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link nav-font" href="{{url('courseplan')}}">BLOG</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link nav-font" href="{{url('courseplan')}}">ABOUT</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link nav-font" href="{{url('courses')}}">COURSES</a>
+                    <a class="nav-link nav-font" href="{{url('courseplan')}}">CONTACT</a>
                 </li>
-
+                
                 @if(Cookie::has('token')==true or Session::has('token')==true)
                     <li class="nav-item">
                         <a class="btn ml-2 normal-btn" href="{{url('classroom') }}">CLASS ROOM</a>

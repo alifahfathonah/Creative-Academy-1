@@ -55,7 +55,7 @@
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -95,7 +95,7 @@
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-body p-5 text-center">
                     <div id="AddForm" class=" w-100">
@@ -141,7 +141,7 @@
                         $('#SelectTable').DataTable().destroy();
                         $('#MainTableData').empty();
 
-                        var jsonData=response.data;
+                        let jsonData=response.data;
                         $.each(jsonData, function (i, item){
 
                             $('<tr>').html(
@@ -157,7 +157,7 @@
 
                         // Course Table Delete Icon Click
                         $('.DeleteBtn').click(function (){
-                            var Teacher_Id=$(this).data('id');
+                            let Teacher_Id=$(this).data('id');
                             $('#DeleteId').html(Teacher_Id);
                             $('#deleteModal').modal('show');
                         });
@@ -165,7 +165,7 @@
 
                         // Course Table Edit Icon Click
                         $('.EditBtn').click(function (){
-                            var Teacher_Id=$(this).data('id');
+                            let Teacher_Id=$(this).data('id');
                             $('#EditId').html(Teacher_Id);
                             TeacherEdit(Teacher_Id);
                             $('#editModal').modal('show');
@@ -190,7 +190,7 @@
 
         // Course Delete Confirm Btn
         $('#DeleteConfirmBtn').click(function (){
-            var Teacher_Id=$('#DeleteId').html();
+            let Teacher_Id=$('#DeleteId').html();
             TeacherDelete(Teacher_Id);
         });
 
@@ -235,9 +235,9 @@
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        var Teacher_Id= $('#EditId').html();
+                        let Teacher_Id= $('#EditId').html();
 
-                        var jsonData=response.data;
+                        let jsonData=response.data;
 
                         $('#TeacherNameEditId').val(jsonData[0].Teacher_Name);
                         $('#TeacherDetailsEditId').val(jsonData[0].Teacher_Details);
@@ -260,11 +260,11 @@
         //
         $('#editConfirmBtn').click(function (){
 
-            var Teacher_Id= $('#EditId').html();
-            var Teacher_Name=$('#TeacherNameEditId').val();
-            var Teacher_Details=$('#TeacherDetailsEditId').val();
-            var Teacher_Email=$('#TeacherEmailEditId').val();
-            var Teacher_Phone=$('#TeacherPhoneEditId').val();
+            let Teacher_Id= $('#EditId').html();
+            let Teacher_Name=$('#TeacherNameEditId').val();
+            let Teacher_Details=$('#TeacherDetailsEditId').val();
+            let Teacher_Email=$('#TeacherEmailEditId').val();
+            let Teacher_Phone=$('#TeacherPhoneEditId').val();
 
             TeacherUpdate(Teacher_Id,Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone);
         })
@@ -326,10 +326,10 @@
         // Course Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
 
-            var Teacher_Name=$('#TeacherNameAddId').val();
-            var Teacher_Details=$('#TeacherDetailsAddId').val();
-            var Teacher_Email=$('#TeacherEmailAddId').val();
-            var Teacher_Phone=$('#TeacherPhoneAddId').val();
+            let Teacher_Name=$('#TeacherNameAddId').val();
+            let Teacher_Details=$('#TeacherDetailsAddId').val();
+            let Teacher_Email=$('#TeacherEmailAddId').val();
+            let Teacher_Phone=$('#TeacherPhoneAddId').val();
 
             TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone);
         })

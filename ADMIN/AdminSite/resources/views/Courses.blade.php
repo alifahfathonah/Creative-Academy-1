@@ -244,9 +244,9 @@
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        var id= $('#EditId').html();
+                        let id= $('#EditId').html();
 
-                        var jsonData=response.data;
+                        let jsonData=response.data;
                         $('#CourseTitleEditId').val(jsonData[0].title);
                         $('#CourseDesEditId').val(jsonData[0].des);
                         $('#CourseCodeEditId').val(jsonData[0].code);

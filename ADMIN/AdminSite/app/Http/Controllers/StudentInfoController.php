@@ -29,4 +29,29 @@ class StudentInfoController extends Controller
         }
     }
 
+
+    function getStudentDetails(Request $req){
+        $id=$req->input('id');
+        $result=StudentListModel::where('id','=',$id)->get();
+        return $result;
+    }
+
+
+    function StudentUpdate(Request $req){
+        $id=$req->input('id');
+        $status=$req->input('status');
+
+        $result=StudentListModel::where('id','=',$id)->update([
+            'status'=>$status,
+        ]);
+
+        if ($result==true){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+
+    }
+
 }

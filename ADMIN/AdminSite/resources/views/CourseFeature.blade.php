@@ -55,7 +55,7 @@
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -94,7 +94,7 @@
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-body p-5 text-center">
                     <div id="AddForm" class=" w-100">
@@ -234,9 +234,9 @@
                         $('#EditForm').removeClass('d-none');
                         $('#EditLoader').addClass('d-none');
 
-                        var id= $('#EditId').html();
+                        let id= $('#EditId').html();
 
-                        var jsonData=response.data;
+                        let jsonData=response.data;
                         $('#CourseFeatureTitleEditId').val(jsonData[0].title);
                         $('#CourseFeatureDesEditId').val(jsonData[0].des);
                         $('#CourseFeatureImageEditId').val(jsonData[0].img);

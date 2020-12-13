@@ -18,6 +18,8 @@ Route::post('/CourseAdd','CourseController@CourseAdd')->middleware('loginCheck')
 Route::get('/StudentInfo', 'StudentInfoController@StudentIndex')->middleware('loginCheck');
 Route::get('/getStudentData','StudentInfoController@getStudentData')->middleware('loginCheck');
 Route::post('/StudentDelete','StudentInfoController@StudentDelete')->middleware('loginCheck');
+Route::post('/getStudentDetails','StudentInfoController@getStudentDetails')->middleware('loginCheck');
+Route::post('/StudentUpdate','StudentInfoController@StudentUpdate')->middleware('loginCheck');
 
 //For Course Feature
 Route::get('/courseFeatureIndex', 'CourseFeatureController@courseFeatureIndex')->middleware('loginCheck');

@@ -16,7 +16,7 @@ class RegistrationController extends Controller
         $email =$request->input('email');
         $mobile =$request->input('mobile');
         $password=$request->input('password');
-        $status="active";
+        $status="panding";
 
         $CountMobile= StudentListModel::where('phn','=', $mobile)->count();
 
