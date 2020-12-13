@@ -5,9 +5,9 @@
 <div class="container ">
 <div class="row justify-content-center d-flex mt-5 mb-5">
 
-<div class="col-md-10 card">
+<div class="col-md-6 card">
   <div class="row">
-    <div style="height: 450px" class="col-md-6 p-3">
+    <div style="height: 450px" class="col-md-12 p-3">
       <form  action=" "  class="m-5 loginForm">
         <div class="form-group">
         <label for="exampleInputEmail1">User Name</label>
@@ -21,10 +21,6 @@
           <button name="submit" type="submit" class="btn btn-block btn-color">Login</button>
         </div>
     </form>
-</div>
-
-<div style="height: 450px" class="col-md-6 bg-light">
-<img class="w-75 m-5" src="images/bannerImg.png">
 </div>
 </div>
 </div>

@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="text" id="CourseFeatureTitleEditId" class="form-control mb-4" placeholder="Course Feature Title">
-                                <input type="text" id="CourseFeatureDesEditId" class="form-control mb-4" placeholder="Course Feature Description">
+                                <textarea type="text"class="form-control mb-4" id="CourseFeatureDesEditId" placeholder="Course Feature Description" rows="3"></textarea>
                                 <input type="text" id="CourseFeatureImageEditId" class="form-control mb-4" placeholder="Course Feature Image">
                             </div>
                         </div>
@@ -83,7 +83,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancle</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
                     <button id="editConfirmBtn" type="button" class="btn btn-sm btn-danger">Save</button>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="text" id="CourseFeatureTitleAddId" class="form-control mb-4" placeholder="Course Feature Title">
-                                <input type="text" id="CourseFeatureDesAddId" class="form-control mb-4" placeholder="Course Feature Description">
+                                <textarea type="text"class="form-control mb-4" id="CourseFeatureDesAddId" placeholder="Course Feature Description" rows="3"></textarea>
                                 <input type="text" id="CourseFeatureImageAddId" class="form-control mb-4" placeholder="Course Feature Image">
                             </div>
                         </div>

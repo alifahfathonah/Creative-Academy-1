@@ -69,7 +69,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" id="NoticeDesEditId" class="form-control mb-4" placeholder="Notice Description">
+                                <textarea type="text"class="form-control mb-4" id="NoticeDesEditId" placeholder="Notice Description" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" id="NoticeDesAddId" class="form-control mb-4" placeholder="Notice Description">
+                                <textarea type="text"class="form-control mb-4" id="NoticeDesAddId" placeholder="Notice Description" rows="3"></textarea>
                             </div>
                         </div>
                     </div>

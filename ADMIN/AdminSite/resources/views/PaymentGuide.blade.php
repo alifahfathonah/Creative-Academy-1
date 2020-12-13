@@ -71,7 +71,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" id="PaymentGuideDesEditId" class="form-control mb-4" placeholder="Payment Guide Description">
+                                <textarea type="text"class="form-control mb-4" id="PaymentGuideDesEditId" placeholder="Payment Guide Description" rows="3"></textarea>
                                 <input type="text" id="PaymentGuidePriceEditId" class="form-control mb-4" placeholder="Payment Guide Price">
                                 <input type="text" id="PaymentGuideBannerEditId" class="form-control mb-4" placeholder="Payment Guide Banner">
                             </div>
@@ -98,11 +98,11 @@
             <div class="modal-content">
                 <div class="modal-body p-5 text-center">
                     <div id="AddForm" class=" w-100">
-                        <h5 class="mb-4">Add Course</h5>
+                        <h5 class="mb-4">Add Payment Guide</h5>
 
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="text" id="PaymentGuideDesAddId" class="form-control mb-4" placeholder="Payment Guide Description">
+                                <textarea type="text"class="form-control mb-4" id="PaymentGuideDesAddId" placeholder="Payment Guide Description" rows="3"></textarea>
                                 <input type="text" id="PaymentGuidePriceAddId" class="form-control mb-4" placeholder="Payment Guide Price">
                                 <input type="text" id="PaymentGuideBannerAddId" class="form-control mb-4" placeholder="Payment Guide Banner">
                             </div>
@@ -144,9 +144,9 @@
 
                             $('<tr>').html(
                                 "<td>" + jsonData[i].id + "</td>" +
-                                "<td>" + jsonData[i].banner + "</td>" +
                                 "<td>" + jsonData[i].des +"</td>" +
                                 "<td>" + jsonData[i].price +"</td>" +
+                                "<td>" + jsonData[i].banner + "</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
                                 "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
