@@ -60,6 +60,12 @@ Route::post('/getNoticeDetails','NoticeController@getNoticeDetails')->middleware
 Route::post('/NoticeUpdate','NoticeController@NoticeUpdate')->middleware('loginCheck');
 Route::post('/NoticeAdd','NoticeController@NoticeAdd')->middleware('loginCheck');
 
+
+//For Contact List
+Route::get('/ContactIndex','ContactController@ContactIndex')->middleware('loginCheck');
+Route::get('/getContactData','ContactController@getContactData')->middleware('loginCheck');
+Route::post('/ContactDelete','ContactController@ContactDelete')->middleware('loginCheck');
+
 //Admin Login
 Route::get('/Login','LoginController@LoginPage');
 Route::post('/onLogin','LoginController@onLogin');
