@@ -7,6 +7,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12 p-5">
+    <h3 class="text-center">Visitor info</h3>
 <table id="VisitorDt" class="table table-striped table-sm table-bordered" cellspacing="0" width="100%">
 
   <thead>

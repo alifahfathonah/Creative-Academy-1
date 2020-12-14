@@ -61,6 +61,15 @@ Route::post('/NoticeUpdate','NoticeController@NoticeUpdate')->middleware('loginC
 Route::post('/NoticeAdd','NoticeController@NoticeAdd')->middleware('loginCheck');
 
 
+//For Notice List
+Route::get('/BlogIndex','BlogController@BlogIndex')->middleware('loginCheck');
+Route::get('/getBlogData','BlogController@getBlogData')->middleware('loginCheck');
+Route::post('/BlogDelete','BlogController@BlogDelete')->middleware('loginCheck');
+Route::post('/getBlogDetails','BlogController@getBlogDetails')->middleware('loginCheck');
+Route::post('/BlogUpdate','BlogController@BlogUpdate')->middleware('loginCheck');
+Route::post('/BlogAdd','BlogController@BlogAdd')->middleware('loginCheck');
+
+
 //For Contact List
 Route::get('/ContactIndex','ContactController@ContactIndex')->middleware('loginCheck');
 Route::get('/getContactData','ContactController@getContactData')->middleware('loginCheck');

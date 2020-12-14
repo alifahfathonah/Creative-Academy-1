@@ -6,7 +6,7 @@
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-
+                <h3 class="text-center">Login info</h3>
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
