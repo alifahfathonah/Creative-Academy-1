@@ -16,9 +16,8 @@ class ReviewTable extends Migration
         Schema::create('review', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('massage');
+            $table->string('des');
+            $table->string('image');
         });
     }
 

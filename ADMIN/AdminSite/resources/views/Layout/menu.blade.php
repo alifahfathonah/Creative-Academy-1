@@ -30,7 +30,7 @@
                         <li> <a href="{{url('/Notice')}}" ><span> <i class="fas fa-flag-checkered"></i> </span><span class="hide-menu">Notice Board</span></a></li>
                         <li> <a href="{{url('/Blog')}}" ><span> <i class="fas fa-book-reader"></i> </span><span class="hide-menu">Blog Post</span></a></li>
                         <li> <a href="{{url('/ContactIndex')}}" ><span> <i class="fas fa-envelope-open-text"></i> </span><span class="hide-menu">Contact List</span></a></li>
-                        <li> <a href="{{url('/Review')}}" ><span> <i class="far fa-comment-dots"></i> </span><span class="hide-menu">Review</span></a></li>
+                        <li> <a href="{{url('/ReviewIndex')}}" ><span> <i class="far fa-comment-dots"></i> </span><span class="hide-menu">Review</span></a></li>
 					</ul>
                 </nav>
             </div>

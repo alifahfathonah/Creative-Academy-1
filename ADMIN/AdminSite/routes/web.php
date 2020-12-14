@@ -66,6 +66,13 @@ Route::get('/ContactIndex','ContactController@ContactIndex')->middleware('loginC
 Route::get('/getContactData','ContactController@getContactData')->middleware('loginCheck');
 Route::post('/ContactDelete','ContactController@ContactDelete')->middleware('loginCheck');
 
+//For Review List
+Route::get('/ReviewIndex','ReviewController@ReviewIndex')->middleware('loginCheck');
+Route::get('/getReviewData','ReviewController@getReviewData')->middleware('loginCheck');
+Route::post('/ReviewDelete','ReviewController@ReviewDelete')->middleware('loginCheck');
+Route::post('/getReviewDetails','ReviewController@getReviewDetails')->middleware('loginCheck');
+Route::post('/ReviewUpdate','ReviewController@ReviewUpdate')->middleware('loginCheck');
+
 //Admin Login
 Route::get('/Login','LoginController@LoginPage');
 Route::post('/onLogin','LoginController@onLogin');
