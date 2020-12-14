@@ -73,7 +73,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" id="CategoryNameEditId" class="form-control mb-4" placeholder="Category Name">
-                                <input type="text" id="CategoryDesEditId" class="form-control mb-4" placeholder="Category Description">
+                                <textarea type="text"class="form-control mb-4" id="CategoryDesEditId" placeholder="Category Description" rows="3"></textarea>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" id="CategoryTitleEditId" class="form-control mb-4" placeholder="Category title">
@@ -107,7 +107,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" id="CategoryNameAddId" class="form-control mb-4" placeholder="Category Name">
-                                <input type="text" id="CategoryDesAddId" class="form-control mb-4" placeholder="Category Description">
+                                <textarea type="text"class="form-control mb-4" id="CategoryDesAddId" placeholder="Category Description" rows="3"></textarea>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" id="CategoryTitleAddId" class="form-control mb-4" placeholder="Category Title">

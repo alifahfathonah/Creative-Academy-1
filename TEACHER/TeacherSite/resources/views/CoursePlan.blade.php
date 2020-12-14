@@ -73,10 +73,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" id="CoursePlanTitleEditId" class="form-control mb-4" placeholder="Course Plan Title">
-                                <input type="text" id="CoursePlanDesEditId" class="form-control mb-4" placeholder="Course Plan Description">
+                                <textarea type="text"class="form-control mb-4" id="CoursePlanDesEditId" placeholder="Course Plan Description" rows="3"></textarea>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" id="CoursePlanPointsEditId" class="form-control mb-4" placeholder="Course Plan Points">
+                                <textarea type="text"class="form-control mb-4" id="CoursePlanPointsEditId" placeholder="Course Plan Points" rows="3"></textarea>
                                 <input type="text" id="CoursePlanVideoEditId" class="form-control mb-4" placeholder="Course Plan Video Link">
                             </div>
                         </div>
@@ -107,10 +107,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" id="CoursePlanTitleAddId" class="form-control mb-4" placeholder="Course Plan Title">
-                                <input type="text" id="CoursePlanDesAddId" class="form-control mb-4" placeholder="Course Plan Description">
+                                <textarea type="text"class="form-control mb-4" id="CoursePlanDesAddId" placeholder="Course Plan Description" rows="3"></textarea>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" id="CoursePlanPointsAddId" class="form-control mb-4" placeholder="Course Plan Points">
+                                <textarea type="text"class="form-control mb-4" id="CoursePlanPointsAddId" placeholder="Course Plan Points" rows="3"></textarea>
                                 <input type="text" id="CoursePlanVideoAddId" class="form-control mb-4" placeholder="Course Plan Video Link">
                             </div>
                         </div>

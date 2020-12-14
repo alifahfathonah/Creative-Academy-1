@@ -18,7 +18,7 @@
           <input  required="" name="userPassword"  value="" type="password" class="form-control" id="exampleInputPassword1" placeholder="Teacher Password">
         </div>
         <div class="form-group">
-          <button name="submit" type="submit" class="btn btn-block btn-danger">Login</button>
+          <button name="submit" type="submit" class="btn btn-block btn-color">Login</button>
         </div>
     </form>
 </div>

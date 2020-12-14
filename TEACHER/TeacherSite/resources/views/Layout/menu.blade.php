@@ -9,7 +9,7 @@
                      <li class="nav-item mt-2">DASHBOARD</li>
 					</ul>
                     <ul class="navbar-nav my-lg-0">
-                        <li class="nav-item"><a href="/Logout" class="btn btn-sm btn-danger">Logout</a></li>
+                        <li class="nav-item"><a href="/Logout" class="btn btn-sm btn-color">Logout</a></li>
                     </ul>
                 </div>
             </nav>
