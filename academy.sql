@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2020 at 03:26 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Dec 17, 2020 at 02:15 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,6 +38,62 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `administrator`
+--
+
+CREATE TABLE `administrator` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`id`, `name`, `password`, `username`, `email`) VALUES
+(1, 'monirul', '1234567890', 'monirul', 'monirul@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `des` varchar(5000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `des`, `date`) VALUES
+(5, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a', '2020-12-18'),
+(6, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(7, 'What is blog?', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by', '2020-12-17'),
+(8, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(9, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a', '2020-12-18'),
+(10, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(11, 'What is blog?', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by', '2020-12-17'),
+(12, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(13, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a', '2020-12-18'),
+(14, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(15, 'What is blog?', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by', '2020-12-17'),
+(16, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(17, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a', '2020-12-18'),
+(18, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16'),
+(19, 'What is blog?', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by', '2020-12-17'),
+(20, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '2020-12-16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `class_category`
 --
 
@@ -54,7 +110,7 @@ CREATE TABLE `class_category` (
 --
 
 INSERT INTO `class_category` (`id`, `name`, `des`, `title`, `img`) VALUES
-(23, 'Changes in laravel 8', 'Study over laravel features according to laravel official', 'Changes in laravel 8', 'images/laravel_fundamental.png'),
+(23, 'Changes in laravel 8', 'Study laravel features according to laravel official aaaaaaaaaa', 'Changes in laravel 8', 'images/laravel_fundamental.png'),
 (24, 'Laravel-Fundamental', 'Study over laravel features according to laravel official', 'Laravel Fundamental', 'images/laravel_fundamental.png'),
 (25, 'Lumen-Fundamental', 'Study over lumen features according to laravel official', 'Lumen API Fundamental', 'images/lumen.png'),
 (26, 'Website-Project', 'First portfolio website project as beginner.', 'Beginner Website Project', 'images/portfolio_website.png'),
@@ -294,7 +350,6 @@ INSERT INTO `class_list` (`id`, `serial_no`, `topic`, `title`, `source`, `video_
 (275, '42', 'Manage Contact data from admin V.1', 'Contact Section- Admin panel', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project'),
 (276, '1', 'Multipul File Upload', 'Laravel Ajax Multipul File Upload', 'https://github.com/rupomsoft/Laravel-Axios-Multipul-File-Uploader', 'https://player.vimeo.com/video/481386833', 'multipul-file-upload'),
 (277, '2', 'Multipul File Upload', 'Laravel Ajax Multipul File Upload', 'https://github.com/rupomsoft/Laravel-Axios-Multipul-File-Uploader', 'https://player.vimeo.com/video/481386833', 'multipul-file-upload'),
-(278, '1', 'Getting Started ', 'Laravel+React Online Course Site', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
 (279, '2', 'Getting Started ', 'Laravel+React Online Course Site', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
 (280, '3', 'Getting Started ', 'Laravel+React Online Course Site', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
 (281, '4', 'Getting Started ', 'React Front End Assets', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
@@ -310,7 +365,6 @@ INSERT INTO `class_list` (`id`, `serial_no`, `topic`, `title`, `source`, `video_
 (291, '10', 'npm run watch', 'Important terminal Command npm run watch', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
 (292, '11', 'CSRF', 'Ensuring CSRF Security In Route', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
 (293, '12', 'CSRF', 'Ensuring CSRF Security In Route', 'https://CodeSilicon.com/paidvideos/Laravel/Sources/OnlineCourse.zip', 'https://player.vimeo.com/video/481386833', 'Laravel-React-Online-Course-Site '),
-(294, '01', 'Troubleshooting', 'Remove Unnecessary Route Before Deploy', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Troubleshooting-Tips'),
 (295, '106', 'Laravel File Storage ', 'File Download Request', 'https://github.com/rupomsoft/Laravel-Web-Development-Bangla-Tutorial/tree/master/File%20Download', 'https://player.vimeo.com/video/481386833', 'Laravel-Fundamental'),
 (296, '107', 'Laravel File Storage ', 'File Download Request', 'https://github.com/rupomsoft/Laravel-Web-Development-Bangla-Tutorial/tree/master/File%20Download', 'https://player.vimeo.com/video/481386833', 'Laravel-Fundamental'),
 (297, '108', 'Laravel File Storage ', 'File Download Request', 'https://github.com/rupomsoft/Laravel-Web-Development-Bangla-Tutorial/tree/master/File%20Download', 'https://player.vimeo.com/video/481386833', 'Laravel-Fundamental'),
@@ -331,10 +385,10 @@ INSERT INTO `class_list` (`id`, `serial_no`, `topic`, `title`, `source`, `video_
 (312, '8', 'Socket Channel Event', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance'),
 (313, '9', 'Socket Channel Event ', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance'),
 (314, '10', 'Socket Channel Event', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance'),
-(315, '11', 'Socket Channel Event ', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance');
-INSERT INTO `class_list` (`id`, `serial_no`, `topic`, `title`, `source`, `video_link`, `category`) VALUES
+(315, '11', 'Socket Channel Event ', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance'),
 (316, '12', 'Socket Channel Event', 'My First Real-Time Pusher Application', '#', 'https://player.vimeo.com/video/481386833', 'Laravel-Advance'),
-(317, '43', 'Review Section Website V.1', 'Review Section - Website ', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project'),
+(317, '43', 'Review Section Website V.1', 'Review Section - Website ', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project');
+INSERT INTO `class_list` (`id`, `serial_no`, `topic`, `title`, `source`, `video_link`, `category`) VALUES
 (318, '44', 'Review Section Admin V.1', 'Review Section - Admin Panel', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project'),
 (319, '45', 'Footer Section - Website V.1', 'Footer Section - Website', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project'),
 (320, '46', 'Other\'s - Website V.1', 'Other\'s Controller, Route, Page Creation', 'https://github.com/rupomsoft/Laravel-Portfolio-website', 'https://player.vimeo.com/video/481386833', 'Website-Project'),
@@ -418,7 +472,39 @@ CREATE TABLE `completed_class` (
 --
 
 INSERT INTO `completed_class` (`id`, `phn`, `ip_address`, `date`, `time`, `video_link`, `title`) VALUES
-(45134, '01785388919', '127.0.0.1', '04-12-2020', '08:22:16pm', 'https://player.vimeo.com/video/481386833', 'Laravel session and cookies');
+(45134, '01785388919', '127.0.0.1', '04-12-2020', '08:22:16pm', 'https://player.vimeo.com/video/481386833', 'Laravel session and cookies'),
+(45135, '01792706304', '127.0.0.1', '05-12-2020', '09:57:31am', 'https://player.vimeo.com/video/481386833', 'Changes in react scaffolding.'),
+(45136, '01792706304', '127.0.0.1', '05-12-2020', '09:58:01am', 'https://player.vimeo.com/video/481386833', 'Changes in routing'),
+(45137, '01792706304', '127.0.0.1', '05-12-2020', '09:58:05am', 'https://player.vimeo.com/video/481386833', 'Changes in model folder'),
+(45138, '01792706304', '127.0.0.1', '09-12-2020', '12:04:14am', 'https://player.vimeo.com/video/481386833', 'Laravel session and cookies'),
+(45139, '01792706304', '127.0.0.1', '09-12-2020', '12:04:21am', 'https://player.vimeo.com/video/481386833', 'File Download Request'),
+(45140, '01792706304', '127.0.0.1', '09-12-2020', '12:05:00am', 'https://player.vimeo.com/video/481386833', 'Laravel Sign in Sign Up With Github');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `massage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `phone`, `massage`) VALUES
+(1, 'monirul', 'monirul@gmail.com', '01792706304', 'hellow'),
+(3, 'sd', 'da', 'dad', 'adada'),
+(4, '11', '11', '11', '11'),
+(5, 'sdsd', 'sdsd', 'dsd', 'ddd'),
+(6, 'abc', 'abc@gmail.com', '12345678', 'aaaaaaaaaaaaaaaaaaaaaaaaaaa'),
+(7, 'fef', 'wfw', 'fwf', 'wfwfw');
 
 -- --------------------------------------------------------
 
@@ -462,7 +548,7 @@ CREATE TABLE `course_plan` (
 --
 
 INSERT INTO `course_plan` (`id`, `title`, `short_des`, `key_points`, `video`) VALUES
-(1, 'How Creative Academy Works', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book', '<ul>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>          \r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\r\n</ul>', 'https://www.w3schools.com/html/mov_bbb.mp4');
+(1, 'How Creative Academy Works', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book', '<ul>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>          \n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n<li class=\"des-text\">Lorem Ipsum is simply dummy text</li>\n</ul>', 'https://www.w3schools.com/html/mov_bbb.mp4');
 
 -- --------------------------------------------------------
 
@@ -529,6 +615,15 @@ CREATE TABLE `login_fail` (
   `course_name` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `login_fail`
+--
+
+INSERT INTO `login_fail` (`id`, `mobile`, `ip_address`, `logtime`, `logdate`, `course_name`) VALUES
+(1682, '32424242424', '127.0.0.1', '11:48:15pm', '10-12-2020', 'Laravel'),
+(1683, '32424242424', '127.0.0.1', '11:48:17pm', '10-12-2020', 'Laravel'),
+(1684, '32424242424', '127.0.0.1', '11:48:19pm', '10-12-2020', 'Laravel');
+
 -- --------------------------------------------------------
 
 --
@@ -549,7 +644,15 @@ CREATE TABLE `login_info` (
 --
 
 INSERT INTO `login_info` (`id`, `mobile`, `ip_address`, `logtime`, `logdate`, `course_name`) VALUES
-(7728, '01785388919', '127.0.0.1', '08:21:50pm', '04-12-2020', 'Laravel');
+(7728, '01785388919', '127.0.0.1', '08:21:50pm', '04-12-2020', 'Laravel'),
+(7729, '01792706304', '127.0.0.1', '09:57:22am', '05-12-2020', 'Laravel'),
+(7730, '01792706304', '127.0.0.1', '12:00:44am', '09-12-2020', 'Laravel'),
+(7731, '01792706304', '127.0.0.1', '12:01:42am', '09-12-2020', 'Laravel'),
+(7732, '12345678900', '127.0.0.1', '12:53:49am', '13-12-2020', 'Laravel'),
+(7733, '09876543211', '127.0.0.1', '12:57:36am', '13-12-2020', 'Laravel'),
+(7734, '12345678900', '127.0.0.1', '01:21:24am', '13-12-2020', 'Laravel'),
+(7735, '12345678900', '127.0.0.1', '01:52:33am', '13-12-2020', 'Laravel'),
+(7736, '01716083591', '127.0.0.1', '11:58:00am', '13-12-2020', 'Laravel');
 
 -- --------------------------------------------------------
 
@@ -584,7 +687,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2020_04_30_225705_terms_table', 1),
 (15, '2020_04_30_225841_login_fail_table', 1),
 (16, '2020_04_30_225914_visitor_table', 1),
-(18, '2020_05_03_001001_completed_class_table', 2);
+(18, '2020_05_03_001001_completed_class_table', 2),
+(19, '2014_10_12_000000_create_users_table', 3),
+(20, '2014_10_12_100000_create_password_resets_table', 3),
+(21, '2019_08_19_000000_create_failed_jobs_table', 3),
+(22, '2020_12_04_202116_administrator__table', 3),
+(23, '2020_11_29_105249_teacher_table', 4),
+(24, '2020_12_10_184900_teacher_table', 5),
+(25, '2020_12_10_185046_teacher_table', 6),
+(26, '2020_12_13_183333_contact_table', 7),
+(27, '2020_12_13_190042_review_table', 8),
+(28, '2020_12_14_182257_blog_table', 9);
 
 -- --------------------------------------------------------
 
@@ -606,13 +719,14 @@ CREATE TABLE `more_series` (
 --
 
 INSERT INTO `more_series` (`id`, `img`, `title`, `des`, `code`, `fee`) VALUES
-(1, 'images/asp.png', 'ASP.NET', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C1', '2000 TK'),
+(1, 'images/asp.png', 'ASP.NET', 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'C1', '3000 TK'),
 (2, 'images/laravellogo.png', 'Lumen', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C2', '2000 TK'),
 (3, 'images/androidlogo.png', 'Android', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C3', '2000 TK'),
 (4, 'images/dartlogo.png', 'Dart', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C4', '2000 TK'),
 (5, 'images/javalogo.png', 'Java', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C5', '2000 TK'),
 (6, 'images/reactlogo.png', 'React js', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C6', '2000 TK'),
-(7, 'images/reactlogo.png', 'React Native', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C7', '2000 TK');
+(7, 'images/reactlogo.png', 'React Native', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 'C7', '2000 TK'),
+(8, 'images/javalogo.png', 'HTML', 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'C9', '3000');
 
 -- --------------------------------------------------------
 
@@ -631,7 +745,7 @@ CREATE TABLE `notice` (
 
 INSERT INTO `notice` (`id`, `des`) VALUES
 (1, 'আপডেট পেতে , প্রশ্ন কিংবা আলোচনার জন্যে ফেছবুক গ্রুপে জয়েন করুন। আপনি যে কোনো বিষয়ে প্রশ্ন করতে পারেন। তবে প্রতি সপ্তাহের শুক্র-শনিবার সারাদিন আমাকে ONLINE এ পাবেন। এছাড়া সপ্তাহের বাকি দিনে রাত ১০টার পরে ONLINE এ পাবেন। API DEVELOPMENT অংশে আপলোড সম্পূর্ণ হয়েছে। WEB DEVELOPMENT অংশে দ্রুত আপলোড চলছে ।'),
-(2, 'সম্পুর্ন কোর্স শেষ হওয়ার সম্ভাব্য সময় ১৬ মে ২০২০ , কোর্স শেষেও আপনার রেজিঃ আজীবন ');
+(2, 'সম্পুর্ন কোর্স শেষ হওয়ার সম্ভাব্য সময় ১৬ মে ২০২০ , কোর্স শেষেও আপনার রেজিঃ আজীবন ।');
 
 -- --------------------------------------------------------
 
@@ -651,7 +765,7 @@ CREATE TABLE `payment_guide` (
 --
 
 INSERT INTO `payment_guide` (`id`, `des`, `price`, `banner`) VALUES
-(1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not on', '5', 'images/offer.png');
+(1, 'Lorem Ipsum is simply dummy text of the printicimen book. It has survived not on', '5', 'images/offer.png');
 
 -- --------------------------------------------------------
 
@@ -674,6 +788,26 @@ INSERT INTO `refund` (`id`, `des`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `des` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `name`, `des`, `image`) VALUES
+(1, 'name', 'des', 'img');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_list`
 --
 
@@ -691,7 +825,32 @@ CREATE TABLE `student_list` (
 --
 
 INSERT INTO `student_list` (`id`, `name`, `email`, `pass`, `phn`, `status`) VALUES
-(356, 'Rabbil', 'Rabbil@Rabbil.com', '01785388919', '01785388919', 'active');
+(356, 'Rabbil', 'Rabbil@Rabbil.com', '01785388919', '01785388919', 'active'),
+(357, 'monirul', 'monirul@gmail.com', '123456789', '01792706304', 'active'),
+(358, 'zihad', 'zihad@gmail.com', '0987654321', '12345678900', 'active'),
+(360, 'rakib', 'rakib@gmail.com', '123456789', '01716083591', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `Teacher_Id` bigint(20) UNSIGNED NOT NULL,
+  `Teacher_Name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Teacher_Details` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Teacher_Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Teacher_Phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`Teacher_Id`, `Teacher_Name`, `Teacher_Details`, `Teacher_Email`, `Teacher_Phone`, `password`) VALUES
+(1, 'monirul', 'laravel', 'monirul@gmail.com', '01792706304', '123456789');
 
 -- --------------------------------------------------------
 
@@ -759,7 +918,97 @@ INSERT INTO `visitor` (`id`, `ip_address`, `visit_time`, `visit_date`) VALUES
 (25022, '127.0.0.1', '08:18:58pm', '04-12-2020'),
 (25023, '127.0.0.1', '08:19:15pm', '04-12-2020'),
 (25024, '127.0.0.1', '08:23:16pm', '04-12-2020'),
-(25025, '127.0.0.1', '08:24:03pm', '04-12-2020');
+(25025, '127.0.0.1', '08:24:03pm', '04-12-2020'),
+(25026, '127.0.0.1', '08:59:01am', '05-12-2020'),
+(25027, '127.0.0.1', '08:59:04am', '05-12-2020'),
+(25028, '127.0.0.1', '09:07:25am', '05-12-2020'),
+(25029, '127.0.0.1', '09:56:28am', '05-12-2020'),
+(25030, '127.0.0.1', '09:57:10am', '05-12-2020'),
+(25031, '127.0.0.1', '11:33:16am', '05-12-2020'),
+(25032, '127.0.0.1', '11:35:12am', '05-12-2020'),
+(25033, '127.0.0.1', '12:28:49pm', '05-12-2020'),
+(25034, '127.0.0.1', '03:56:10pm', '05-12-2020'),
+(25035, '127.0.0.1', '03:56:14pm', '05-12-2020'),
+(25036, '127.0.0.1', '03:56:18pm', '05-12-2020'),
+(25037, '127.0.0.1', '03:56:28pm', '05-12-2020'),
+(25038, '127.0.0.1', '03:59:29pm', '05-12-2020'),
+(25039, '127.0.0.1', '04:00:02pm', '05-12-2020'),
+(25040, '127.0.0.1', '04:45:13pm', '05-12-2020'),
+(25041, '127.0.0.1', '12:04:09am', '08-12-2020'),
+(25042, '127.0.0.1', '12:05:31am', '08-12-2020'),
+(25043, '127.0.0.1', '12:43:48am', '08-12-2020'),
+(25044, '127.0.0.1', '12:00:29am', '09-12-2020'),
+(25045, '127.0.0.1', '12:01:20am', '09-12-2020'),
+(25046, '127.0.0.1', '12:05:09am', '09-12-2020'),
+(25047, '127.0.0.1', '12:16:08am', '09-12-2020'),
+(25048, '127.0.0.1', '12:22:07am', '09-12-2020'),
+(25049, '127.0.0.1', '10:04:59am', '10-12-2020'),
+(25050, '127.0.0.1', '11:22:27pm', '10-12-2020'),
+(25051, '127.0.0.1', '11:22:32pm', '10-12-2020'),
+(25052, '127.0.0.1', '11:22:44pm', '10-12-2020'),
+(25053, '127.0.0.1', '11:24:05pm', '10-12-2020'),
+(25054, '127.0.0.1', '11:48:35pm', '10-12-2020'),
+(25055, '127.0.0.1', '01:54:45am', '12-12-2020'),
+(25056, '127.0.0.1', '01:54:55am', '12-12-2020'),
+(25057, '127.0.0.1', '01:58:34am', '12-12-2020'),
+(25058, '127.0.0.1', '12:48:10am', '13-12-2020'),
+(25059, '127.0.0.1', '12:53:30am', '13-12-2020'),
+(25060, '127.0.0.1', '12:53:58am', '13-12-2020'),
+(25061, '127.0.0.1', '01:16:36am', '13-12-2020'),
+(25062, '127.0.0.1', '01:16:56am', '13-12-2020'),
+(25063, '127.0.0.1', '01:17:15am', '13-12-2020'),
+(25064, '127.0.0.1', '01:21:34am', '13-12-2020'),
+(25065, '127.0.0.1', '01:52:19am', '13-12-2020'),
+(25066, '127.0.0.1', '01:58:35am', '13-12-2020'),
+(25067, '127.0.0.1', '01:58:44am', '13-12-2020'),
+(25068, '127.0.0.1', '02:04:00am', '13-12-2020'),
+(25069, '127.0.0.1', '11:51:53am', '13-12-2020'),
+(25070, '127.0.0.1', '11:53:42am', '13-12-2020'),
+(25071, '127.0.0.1', '11:55:32am', '13-12-2020'),
+(25072, '127.0.0.1', '11:55:33am', '13-12-2020'),
+(25073, '127.0.0.1', '01:39:24pm', '13-12-2020'),
+(25074, '127.0.0.1', '01:28:32pm', '15-12-2020'),
+(25075, '127.0.0.1', '01:29:48pm', '15-12-2020'),
+(25076, '127.0.0.1', '01:30:16pm', '15-12-2020'),
+(25077, '127.0.0.1', '01:33:26pm', '15-12-2020'),
+(25078, '127.0.0.1', '01:45:59pm', '15-12-2020'),
+(25079, '127.0.0.1', '01:47:42pm', '15-12-2020'),
+(25080, '127.0.0.1', '03:34:41pm', '15-12-2020'),
+(25081, '127.0.0.1', '03:34:55pm', '15-12-2020'),
+(25082, '127.0.0.1', '03:34:57pm', '15-12-2020'),
+(25083, '127.0.0.1', '04:06:06pm', '15-12-2020'),
+(25084, '127.0.0.1', '05:04:51pm', '15-12-2020'),
+(25085, '127.0.0.1', '05:05:04pm', '15-12-2020'),
+(25086, '127.0.0.1', '05:07:12pm', '15-12-2020'),
+(25087, '127.0.0.1', '11:59:11pm', '15-12-2020'),
+(25088, '127.0.0.1', '12:00:08am', '16-12-2020'),
+(25089, '127.0.0.1', '12:00:10am', '16-12-2020'),
+(25090, '127.0.0.1', '12:00:16am', '16-12-2020'),
+(25091, '127.0.0.1', '12:00:18am', '16-12-2020'),
+(25092, '127.0.0.1', '01:34:33am', '16-12-2020'),
+(25093, '127.0.0.1', '01:34:35am', '16-12-2020'),
+(25094, '127.0.0.1', '01:35:16am', '16-12-2020'),
+(25095, '127.0.0.1', '01:35:18am', '16-12-2020'),
+(25096, '127.0.0.1', '10:06:53am', '16-12-2020'),
+(25097, '127.0.0.1', '10:11:08am', '16-12-2020'),
+(25098, '127.0.0.1', '11:06:31am', '16-12-2020'),
+(25099, '127.0.0.1', '11:06:37am', '16-12-2020'),
+(25100, '127.0.0.1', '11:06:41am', '16-12-2020'),
+(25101, '127.0.0.1', '11:22:28am', '16-12-2020'),
+(25102, '127.0.0.1', '11:22:34am', '16-12-2020'),
+(25103, '127.0.0.1', '11:45:37am', '16-12-2020'),
+(25104, '127.0.0.1', '12:13:33pm', '16-12-2020'),
+(25105, '127.0.0.1', '12:13:49pm', '16-12-2020'),
+(25106, '127.0.0.1', '12:18:40pm', '16-12-2020'),
+(25107, '127.0.0.1', '12:26:49pm', '16-12-2020'),
+(25108, '127.0.0.1', '12:27:00pm', '16-12-2020'),
+(25109, '127.0.0.1', '12:27:01pm', '16-12-2020'),
+(25110, '127.0.0.1', '12:28:27pm', '16-12-2020'),
+(25111, '127.0.0.1', '12:29:10pm', '16-12-2020'),
+(25112, '127.0.0.1', '12:29:13pm', '16-12-2020'),
+(25113, '127.0.0.1', '12:29:19pm', '16-12-2020'),
+(25114, '127.0.0.1', '12:30:17pm', '16-12-2020'),
+(25115, '127.0.0.1', '12:30:19pm', '16-12-2020');
 
 --
 -- Indexes for dumped tables
@@ -769,6 +1018,18 @@ INSERT INTO `visitor` (`id`, `ip_address`, `visit_time`, `visit_date`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -787,6 +1048,12 @@ ALTER TABLE `class_list`
 -- Indexes for table `completed_class`
 --
 ALTER TABLE `completed_class`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -856,10 +1123,22 @@ ALTER TABLE `refund`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student_list`
 --
 ALTER TABLE `student_list`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`Teacher_Id`);
 
 --
 -- Indexes for table `terms`
@@ -884,40 +1163,58 @@ ALTER TABLE `admin`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `administrator`
+--
+ALTER TABLE `administrator`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `class_category`
 --
 ALTER TABLE `class_category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `class_list`
 --
 ALTER TABLE `class_list`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 
 --
 -- AUTO_INCREMENT for table `completed_class`
 --
 ALTER TABLE `completed_class`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45135;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45142;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `course_feature`
 --
 ALTER TABLE `course_feature`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `course_plan`
 --
 ALTER TABLE `course_plan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `file_doc`
 --
 ALTER TABLE `file_doc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `free_class`
@@ -929,37 +1226,37 @@ ALTER TABLE `free_class`
 -- AUTO_INCREMENT for table `login_fail`
 --
 ALTER TABLE `login_fail`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1682;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1685;
 
 --
 -- AUTO_INCREMENT for table `login_info`
 --
 ALTER TABLE `login_info`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7729;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7737;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `more_series`
 --
 ALTER TABLE `more_series`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment_guide`
 --
 ALTER TABLE `payment_guide`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `refund`
@@ -968,10 +1265,22 @@ ALTER TABLE `refund`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `student_list`
 --
 ALTER TABLE `student_list`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
+
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `Teacher_Id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `terms`
@@ -983,7 +1292,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25026;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25116;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

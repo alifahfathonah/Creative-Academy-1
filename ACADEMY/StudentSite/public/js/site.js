@@ -31,7 +31,7 @@ $(document).ready(function () {
                     $( ".loginBtn" ).html("Login")
                     if(response.status==200 && response.data==1){
                         myToast('Login Success');
-                        window.location.href = "/classroom";
+                        window.location.href = "/";
                     }
                     else if(response.status==200 && response.data==0){
                         myToast('User Not Found');
@@ -293,7 +293,7 @@ $('.owl-carousel').owlCarousel({
 
 //Line Writing Animation..........
 var i = 0;
-var txt = 'Learn With Rabbil Hasan ';
+var txt = 'Creative Academy';
 var speed = 80;
 function typeWriter() {
     if (i < txt.length) {
@@ -304,3 +304,6 @@ function typeWriter() {
 }
 typeWriter();
 //Line Writing Animation End..........
+
+
+

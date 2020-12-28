@@ -6,11 +6,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@HomePage');
 Route::get('/refund', 'RefundController@RefundPage');
 Route::get('/term', 'TermsController@TermPage');
+Route::get('/about', 'AboutController@AboutIndex');
 
-Route::get('/courseplan', 'CoursePlanController@CoursePlanPage');
-Route::get('/freeclass', 'FreeClassController@FreeClassPage');
+//Route::get('/courseplan', 'CoursePlanController@CoursePlanPage');
+//Route::get('/freeclass', 'FreeClassController@FreeClassPage');
 
 Route::get('/courses', 'CoursePlanController@CoursesPage');
+Route::get('/CourseEnrollPage/{id}', 'CourseEnrollController@CourseEnrollPage')->middleware('check');
+
+
+Route::get('/AllBlog', 'BlogController@AllBlog');
+Route::get('/BlogDetails/{id}', 'BlogController@BlogDetails');
+
+Route::get('/contact', 'ContactController@ContactIndex');
+Route::post('/ContactSend', 'ContactController@ContactSend');
 
 //Authentication
 Route::get('/login','LoginController@LoginPage' );

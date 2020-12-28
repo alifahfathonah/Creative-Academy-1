@@ -42,11 +42,12 @@ body{
 .nav-font{
     color: #090910!important;
     font-family: Montserrat;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .nav-font:hover{
     color: #00bb18 !important;
+    font-weight: 700;
 }
 
 .navbar{
@@ -134,6 +135,10 @@ a:hover{
 .item-logo{
     width:50px;
     height:50px;
+}
+.item-logoBig{
+    width:200px;
+    height:200px;
 }
 .item-logoSmall{
     width:20px;
@@ -355,4 +360,8 @@ th, td{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.ContactPage-Margin-Top{
+    margin-top: 150px;
 }
