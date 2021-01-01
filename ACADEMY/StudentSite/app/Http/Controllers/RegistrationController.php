@@ -8,7 +8,7 @@ class RegistrationController extends Controller
 {
     function RegistrationPage(){
         $PaymentGuide=PaymentGuideModel::all();
-        return view('Page.registration',[ 'PaymentGuide'=>$PaymentGuide]);
+        return view('Page.registration',['PaymentGuide'=>$PaymentGuide]);
     }
 
     function onRegister(Request $request){
@@ -19,7 +19,6 @@ class RegistrationController extends Controller
         $status="panding";
 
         $CountMobile= StudentListModel::where('phn','=', $mobile)->count();
-
 
         if($CountMobile>0 ){
             return "MobileExist";

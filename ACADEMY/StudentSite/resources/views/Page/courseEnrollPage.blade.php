@@ -15,6 +15,7 @@
                                 <h6 class="card-subtitle text-success mt-2">Course Fee: {{$result->fee}}</h6>
                                 <h6 class="card-subtitle text-success mt-2">Total Class: {{$result->totalClass}} Total Student: {{$result->totalStudent}}</h6>
                                 <h5 class="des-text mt-2">{{$result->des}}</h5>
+                                <input id="CourseCode" type="text" value="{{$result->code}}" class="d-none form-control  w-100" placeholder="Course Code">
                             </div>
                     </div>
                 </div>
@@ -23,19 +24,20 @@
                     <div class="text-center">
                         <div class="col-md-10 ml-5 mt-3 contactPage-form">
                             <h5 class="service-card-title">Payment Details</h5>
+
                             <div class="form-group">
-                                <select class="form-control" id="">
+                                <select class="form-control" id="PaymentType">
                                     <option>Bkash</option>
                                     <option>DBBL</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input id="" type="text" class="form-control  w-100" placeholder="Trx ID">
+                                <input id="PaymentTrx" type="text" class="form-control  w-100" placeholder="Trx ID">
                             </div>
                             <div class="form-group">
-                                <input id="" type="text" class="form-control  w-100" placeholder="Payment Mobile No">
+                                <input id="PaymentMobile" type="text" class="form-control  w-100" placeholder="Payment Mobile No">
                             </div>
-                            <button id="contactSendBtnId" type="submit" class="btn btn-block normal-btn w-100">CONFIRM PAYMENT</button>
+                            <button id="purchaseConfirmBtnId" type="submit" class="btn btn-block normal-btn w-100">CONFIRM PAYMENT</button>
                         </div>
                     </div>
                 </div>
@@ -53,5 +55,76 @@
 
 
 
+        // purchase JS-----------------------
+
+        $('#purchaseConfirmBtnId').click(function (){
+            let code=$('#CourseCode').val();
+            let payment_type=$('#PaymentType').val();
+            let trxID=$('#PaymentTrx').val();
+            let payment_mobile=$('#PaymentMobile').val();
+
+            PurchaseAdd(code,payment_type,trxID,payment_mobile);
+        });
+
+        function PurchaseAdd(code,payment_type,trxID,payment_mobile){
+
+            if (payment_type.length==0){
+                $('#purchaseConfirmBtnId').html('please enter Payment Type !');
+                setTimeout(function () {
+                    $('#purchaseConfirmBtnId').html('Send Again');
+                },2000)
+            }
+
+            else if (trxID.length==0){
+                $('#purchaseConfirmBtnId').html('please enter Trx ID !');
+                setTimeout(function () {
+                    $('#purchaseConfirmBtnId').html('Send Again');
+                },2000)
+            }
+
+            else if (payment_mobile.length==0){
+                $('#purchaseConfirmBtnId').html('please enter Payment Mobile !');
+                setTimeout(function () {
+                    $('#purchaseConfirmBtnId').html('Send Again');
+                },2000)
+            }
+
+            else{
+
+                axios.post('/onPurchase',{
+                    code:code,
+                    payment_type:payment_type,
+                    trxID:trxID,
+                    payment_mobile:payment_mobile,
+                })
+                    .then(function (response){
+                        if (response.status===200 && response.data===1){
+                            window.location.href = "/classroom";
+
+                            $('#PaymentType').val('');
+                            $('#PaymentTrx').val('');
+                            $('#PaymentMobile').val('');
+                        }
+
+                        else{
+                            $('#purchaseConfirmBtnId').html('Request Fail ! Try Again');
+                            setTimeout(function () {
+                                $('#purchaseConfirmBtnId').html('CONFIRM PAYMENT');
+                            },3000)
+                        }
+                    })
+
+                    .catch(function (error){
+                        $('#purchaseConfirmBtnId').html('Try Again');
+                        setTimeout(function () {
+                            $('#purchaseConfirmBtnId').html('CONFIRM PAYMENT');
+                        },3000)
+                    })
+
+            }
+
+        }
+
     </script>
 @endsection
+

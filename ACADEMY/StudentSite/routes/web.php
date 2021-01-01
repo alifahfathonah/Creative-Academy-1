@@ -14,6 +14,8 @@ Route::get('/about', 'AboutController@AboutIndex');
 Route::get('/courses', 'CoursePlanController@CoursesPage');
 Route::get('/CourseEnrollPage/{id}', 'CourseEnrollController@CourseEnrollPage')->middleware('check');
 
+Route::post('/onPurchase', 'CourseEnrollController@onPurchase')->middleware('check');
+
 
 Route::get('/AllBlog', 'BlogController@AllBlog');
 Route::get('/BlogDetails/{id}', 'BlogController@BlogDetails');
@@ -31,14 +33,10 @@ Route::post('/loginSet','LoginController@onLogin');
 Route::get('/logout','LogoutController@onLogout')->middleware('check');
 
 
-
-
-
-
 //ClassRoom
 Route::get('/classroom','ClassRoomController@ClassRoomPage')->middleware('check');
 
-Route::post('/classRoomSummary','ClassRoomController@ClassRoomSummary')->middleware('check');
+Route::get('/classRoomHome','ClassRoomController@classRoomHome')->middleware('check');
 Route::post('/latestUpload','ClassRoomController@LatestUploads')->middleware('check');
 
 Route::get('/tutorials','TutorialController@TutorialPage')->middleware('check');
