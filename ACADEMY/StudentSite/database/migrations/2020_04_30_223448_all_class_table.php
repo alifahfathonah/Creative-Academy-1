@@ -21,6 +21,7 @@ class AllClassTable extends Migration
             $table->string('source',1000);
             $table->string('video_link',1000);
             $table->string('category',1000);
+            $table->string('code',1000);
         });
     }
 

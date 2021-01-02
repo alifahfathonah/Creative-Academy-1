@@ -8,7 +8,7 @@
             @foreach($courses as $courses)
                 <div class="col-md-3 p-1">
                     <div class="card text-center">
-                        <a target="_blank" class="nav-item my-1 des-text " href="">
+
                             <div class="card-body">
                                 <img class="item-logo" src="{{$courses->img}}"><br>
                                 <h5 class="title-text mt-2">{{$courses->title}}</h5>
@@ -16,7 +16,7 @@
                                 <h5 class="des-text mt-2">{{$courses->des}}</h5>
                                 <a href='{{url("CourseEnrollPage/".$courses->id)}}'  class="btn btn-sm btn-outline-success">Enroll Now</a>
                             </div>
-                        </a>
+
                     </div>
                 </div>
             @endforeach

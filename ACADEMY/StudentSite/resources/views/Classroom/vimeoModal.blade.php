@@ -8,9 +8,6 @@
                 </button>
             </div>
             <div class="modal-body m-0 p-0">
-                <div class=" vimoLoader center-screen " style="width: 100%;height: 290px">
-                    <div class="loader "></div>
-                </div>
                 <iframe id="vimeo-player"  src=" "  class="vimoFrame" style="width: 100%;height: 290px" frameborder="0"  allow="autoplay; fullscreen " webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
             <div class="modal-footer">

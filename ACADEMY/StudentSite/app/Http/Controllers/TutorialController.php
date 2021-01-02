@@ -13,9 +13,25 @@ class TutorialController extends Controller
         return view('Classroom.tutorials',['TutorialCategory'=>$category]);
     }
 
-    function TutorialByCategory(Request $request){
-        $Category= $request->input('ClassCategory');
-        $ClassList=ClassListModel::orderBy('id','desc')->where('category','=',$Category)->get();
-        return $ClassList;
+    //function TutorialByCategory(Request $request){
+        //$Category= $request->input('ClassCategory');
+        //$ClassList=ClassListModel::orderBy('id','desc')->where('category','=',$Category)->get();
+       // return $ClassList;
+   // }
+
+
+    function TutorialByCourseCode(Request $request){
+        $code= $request->code;
+        $CourseClasses=ClassListModel::where('code','=',$code)->get();
+        return view('Classroom.courseClass',[
+            'CourseClasses'=>$CourseClasses
+        ]);
     }
+
+    function courseVideos(Request $request){
+        $code= $request->code;
+        $CourseCode=ClassListModel::where('code','=',$code)->get();
+        return $CourseCode;
+    }
+
 }

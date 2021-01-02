@@ -110,7 +110,7 @@ Main sidebar
     top: 0px;
     z-index: 20;
     padding-top: 60px;
-    background:#F9F9F9;
+    background: #0c0707;
     -webkit-box-shadow: 1px 0px 8px rgba(82, 92, 189, 0.1);
     box-shadow: 0 0 8px 0 rgba(240, 240, 240,1);
 }
@@ -204,13 +204,13 @@ sidebar navigation
 }
 
 .sideNavItem{
-    border-left: 0px solid #FF2D20;
-    color: #090910!important;
+    border-left: 0px solid #00bb18;
+    color: #ffffff !important;
 }
 
 .sideNavItem:hover{
-    border-left: 5px solid #FF2D20;
-    color: #090910!important;
+    border-left: 5px solid #00bb18;
+    color: #000000 !important;
     -webkit-transition: all .3s linear;
     -o-transition: all .3s linear;
     transition: all .3s linear;

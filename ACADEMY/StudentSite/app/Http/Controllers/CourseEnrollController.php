@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\ClassCompletedModel;
 use App\Model\MoreSeriesModel;
 use App\Model\PurchaseModel;
 use Illuminate\Http\Request;
@@ -17,32 +18,45 @@ class CourseEnrollController extends Controller
         return view('Page.courseEnrollPage',[
             'result'=>$result
         ]);
-
     }
 
 
     function onPurchase(Request $req){
+        $img=$req->input('img');
+        $title=$req->input('title');
         $code=$req->input('code');
-        $phn=Session::get('token');
-        $payment_type=$req->input('payment_type');
-        $trxID=$req->input('trxID');
-        $payment_mobile=$req->input('payment_mobile');
-        $status="panding";
+        $phn="";
+        if(Session::has('token')==true){
+            $phn=Session::get('token');
+        }
+        $count=PurchaseModel::where('phn','=',$phn)->where('code','=',$code)->count();
 
-        $result=PurchaseModel::insert([
-            'code'=>$code,
-            'phn'=>$phn,
-            'payment_type'=>$payment_type,
-            'trxID'=>$trxID,
-            'payment_mobile'=>$payment_mobile,
-            'status'=>$status
-        ]);
-
-        if($result==true){
-            return 1;
+        if($count>0){
+            return 2;
         }
         else{
-            return 0;
+            $payment_type=$req->input('payment_type');
+            $trxID=$req->input('trxID');
+            $payment_mobile=$req->input('payment_mobile');
+            $status="panding";
+            $result=PurchaseModel::insert([
+                'img'=>$img,
+                'title'=>$title,
+                'code'=>$code,
+                'phn'=>$phn,
+                'payment_type'=>$payment_type,
+                'trxID'=>$trxID,
+                'payment_mobile'=>$payment_mobile,
+                'status'=>$status
+            ]);
+
+            if($result==true){
+                return 1;
+            }
+            else{
+                return 0;
+            }
         }
+
     }
 }

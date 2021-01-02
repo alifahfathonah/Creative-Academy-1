@@ -15,6 +15,8 @@ class PurshaseTable extends Migration
     {
         Schema::create('purchase',function(Blueprint $table){
             $table->bigIncrements('id');
+            $table->string('img',1000);
+            $table->string('title',1000);
             $table->string('code',1000);
             $table->string('phn',11);
             $table->string('payment_type',1000);

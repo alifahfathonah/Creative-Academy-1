@@ -1,27 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Model\StudentListModel;
+use App\Model\PurchaseModel;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 
 class ClassRoomController extends Controller
 {
+
     function ClassRoomPage(){
-        return view('Classroom.classRoom');
-    }
-
-    function classRoomHome(){
-
+        $phn="";
         if(Session::has('token')==true){
             $phn=Session::get('token');
-            $result=StudentListModel::where('phn','=',$phn)->get();
-
-            return view('Classroom.classRoom',[
-                'result'=>$result
-            ]);
         }
 
+
+        $ClassRoomCourse=PurchaseModel::Where('phn','=',$phn)->where('status','=','active')->get();
+        return view('Classroom.classRoom',['ClassRoomCourse'=>$ClassRoomCourse]);
     }
 
 }

@@ -1,5 +1,5 @@
 @extends('Layout.app')
-@section('title','Contact')
+@section('title','CourseEnroll Page')
 @section('content')
 
     <div class="text-center section-marginTop container-fluid">
@@ -15,7 +15,11 @@
                                 <h6 class="card-subtitle text-success mt-2">Course Fee: {{$result->fee}}</h6>
                                 <h6 class="card-subtitle text-success mt-2">Total Class: {{$result->totalClass}} Total Student: {{$result->totalStudent}}</h6>
                                 <h5 class="des-text mt-2">{{$result->des}}</h5>
-                                <input id="CourseCode" type="text" value="{{$result->code}}" class="d-none form-control  w-100" placeholder="Course Code">
+
+
+                                <input id="CourseImg" type="text" value="{{$result->img}}" class="d-none form-control  w-100">
+                                <input id="CourseTitle" type="text" value="{{$result->title}}" class="d-none form-control  w-100">
+                                <input id="CourseCode" type="text" value="{{$result->code}}" class="d-none form-control  w-100">
                             </div>
                     </div>
                 </div>
@@ -53,20 +57,21 @@
 @section('script')
     <script type="text/javascript">
 
-
-
         // purchase JS-----------------------
 
+
         $('#purchaseConfirmBtnId').click(function (){
+            let img=$('#CourseImg').val();
+            let title=$('#CourseTitle').val();
             let code=$('#CourseCode').val();
             let payment_type=$('#PaymentType').val();
             let trxID=$('#PaymentTrx').val();
             let payment_mobile=$('#PaymentMobile').val();
 
-            PurchaseAdd(code,payment_type,trxID,payment_mobile);
+            PurchaseAdd(img,title,code,payment_type,trxID,payment_mobile);
         });
 
-        function PurchaseAdd(code,payment_type,trxID,payment_mobile){
+        function PurchaseAdd(img,title,code,payment_type,trxID,payment_mobile){
 
             if (payment_type.length==0){
                 $('#purchaseConfirmBtnId').html('please enter Payment Type !');
@@ -92,6 +97,8 @@
             else{
 
                 axios.post('/onPurchase',{
+                    img:img,
+                    title:title,
                     code:code,
                     payment_type:payment_type,
                     trxID:trxID,
@@ -104,6 +111,10 @@
                             $('#PaymentType').val('');
                             $('#PaymentTrx').val('');
                             $('#PaymentMobile').val('');
+                        }
+
+                        else if(response.status===200 && response.data===2){
+                            alert("You Already Enrolled This Course");
                         }
 
                         else{
@@ -124,6 +135,8 @@
             }
 
         }
+
+
 
     </script>
 @endsection

@@ -66,7 +66,6 @@ $(document).ready(function () {
 
 
 
-
     $( '.regForm' ).on( 'submit', function( event ) {
         event.preventDefault();
         let formData= $(this).serializeArray();
@@ -91,12 +90,12 @@ $(document).ready(function () {
                     name:name,
                     email:email,
                     password:password,
-                    mobile:mobile,
+                    mobile:mobile
                 })
                 .then(function (response) {
                     if(response.status!==200 || response.data==0){
                         $( ".regBtn" ).html("Submit")
-                        myToast("Registration Fail Try Again");
+                        myToast("Registration Success ! You Will Notify Via SMS");
                     }
                     else if(response.data=="MobileExist"){
                         $( ".regBtn" ).html("Submit")
@@ -112,10 +111,12 @@ $(document).ready(function () {
                 })
                 .catch(function (error) {
                     $( ".regBtn" ).html("Submit")
-                    myToast("Registration Fail Try Again");
+                    myToast("Registration Success ! You Will Notify Via SMS");
                 })
         }
     });
+
+
 
 
     $( '.passRecover' ).on( 'submit', function( event ) {

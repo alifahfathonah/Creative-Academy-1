@@ -2,6 +2,9 @@
 @section('title','Profile')
 @section('content')
     @include('Classroom.pass_reset')
+
+    <!--
+
     <div class="container section-marginmd mb-1">
         <div class="row">
             <div class="col-md-12 p-2 mainDiv d-none">
@@ -45,6 +48,8 @@
         </div>
      </div>
     </div>
+
+  -->
 
 
 
