@@ -8,9 +8,11 @@
 <div class="col-md-6 card">
   <div class="row">
     <div style="height: 450px" class="col-md-12 p-3">
+        <h3 class="text-center" for="exampleInputEmail1">ADMIN LOGIN</h3>
+        <hr>
       <form  action=" "  class="m-5 loginForm">
         <div class="form-group">
-        <label for="exampleInputEmail1">User Name</label>
+        <label for="exampleInputEmail1">Email</label>
          <input required="" name="userName" value="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User Name">
         </div>
         <div class="form-group">

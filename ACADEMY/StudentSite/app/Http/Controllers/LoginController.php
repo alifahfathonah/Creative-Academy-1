@@ -30,7 +30,6 @@ class LoginController extends Controller
                 'ip_address'=>$ip,
                 'logtime'=>$logTime,
                 'logdate'=>$logDate,
-                'course_name'=>'course'
             ]);
             return 0;
         }
@@ -40,7 +39,6 @@ class LoginController extends Controller
                 'ip_address'=>$ip,
                 'logtime'=>$logTime,
                 'logdate'=>$logDate,
-                'course_name'=>'course'
             ]);
             return "pending";
         }
@@ -51,7 +49,6 @@ class LoginController extends Controller
                 'ip_address'=>$ip,
                 'logtime'=>$logTime,
                 'logdate'=>$logDate,
-                'course_name'=>'Laravel'
             ]);
             if($checkStatus=="check"){
                 Cookie::queue('token', $phn, 4320);

@@ -95,7 +95,7 @@ $(document).ready(function () {
                 .then(function (response) {
                     if(response.status!==200 || response.data==0){
                         $( ".regBtn" ).html("Submit")
-                        myToast("Registration Success ! You Will Notify Via SMS");
+                        myToast("Registration Success");
                     }
                     else if(response.data=="MobileExist"){
                         $( ".regBtn" ).html("Submit")
@@ -103,7 +103,7 @@ $(document).ready(function () {
                     }
                     else if(response.status==200  && response.data==1){
                         $( ".regBtn" ).html(loader+ " Going...")
-                        myToast("Registration Success ! You Will Notify Via SMS");
+                        myToast("Registration Success");
                         setTimeout(function () {
                             window.location.href = "/login";
                         },2000)
@@ -111,7 +111,7 @@ $(document).ready(function () {
                 })
                 .catch(function (error) {
                     $( ".regBtn" ).html("Submit")
-                    myToast("Registration Success ! You Will Notify Via SMS");
+                    myToast("Registration Fail");
                 })
         }
     });
@@ -185,15 +185,17 @@ $(document).ready(function () {
                 .then(function (response) {
                     if(response.status!==200 || response.data==0){
                         $( ".resetBtn" ).html("Reset")
-                        ResetToast("Resetting Fail");
+                        ResetToast("Reset Successful");
+                        $(".passResetModal").modal('hide');
                     }
                     else if(response.data=="AccountNotExist"){
                         $( ".resetBtn" ).html("Reset")
-                        ResetToast("Account Not Exists");
+                        ResetToast("Reset Successful");
+                        $(".passResetModal").modal('hide');
                     }
                     else if(response.status==200  && response.data==1){
                         $( ".resetBtn" ).html("Reset")
-                        ResetToast("Recover Successful, You Will Notify Via SMS");
+                        ResetToast("Reset Successful");
                         $( ".resetBtn" ).html("Reset")
                         setTimeout(function () {
                             $(".passResetModal").modal('hide');
@@ -202,7 +204,8 @@ $(document).ready(function () {
                 })
                 .catch(function (error) {
                     $( ".resetBtn" ).html("Reset")
-                    ResetToast("Reset fail");
+                    ResetToast("Reset Successful");
+                    $(".passResetModal").modal('hide');
                 })
         }
     });

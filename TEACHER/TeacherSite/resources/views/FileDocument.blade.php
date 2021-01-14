@@ -6,7 +6,7 @@
     <div id="MainDiv" class="container d-none">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h3 class="text-center">File document</h3>
+                <h4 class="text-center">File document</h4>
                 <button id="addNewBtnId" class="btn my-3 btn-sm btn-color">Add New</button>
 
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -143,8 +143,8 @@
                                 "<td>" + jsonData[i].id +"</td>" +
                                 "<td>" + jsonData[i].title + "</td>" +
                                 "<td>" + jsonData[i].doc_url +"</td>" +
-                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
-                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
+                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit btn-outline-success edit-btn-color'></i></a></td>" +
+                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt btn-outline-danger delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
                         });
 

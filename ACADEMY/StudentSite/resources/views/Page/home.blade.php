@@ -1,8 +1,6 @@
 @extends('Layout.app')
 @section('content')
     @include('Component.homeBanner')
-    @include('Component.homeCourseFeature')
-    @include('Component.homeCoursePlan')
 
     @if(Cookie::has('token')==true or Session::has('token')==true)
         @include('Component.homeGoClassRoom')

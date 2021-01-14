@@ -3,14 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@HomePage');
-Route::get('/refund', 'RefundController@RefundPage');
-Route::get('/term', 'TermsController@TermPage');
+
 Route::get('/about', 'AboutController@AboutIndex');
 
-//Route::get('/courseplan', 'CoursePlanController@CoursePlanPage');
-//Route::get('/freeclass', 'FreeClassController@FreeClassPage');
-
-Route::get('/courses', 'CoursePlanController@CoursesPage');
+Route::get('/courses', 'CourseController@CoursesPage');
 Route::get('/CourseEnrollPage/{id}', 'CourseEnrollController@CourseEnrollPage')->middleware('check');
 
 Route::post('/onPurchase', 'CourseEnrollController@onPurchase')->middleware('check');
@@ -34,10 +30,7 @@ Route::get('/logout','LogoutController@onLogout')->middleware('check');
 Route::get('/classroom','ClassRoomController@ClassRoomPage')->middleware('check');
 
 Route::get('/classRoomHome','ClassRoomController@classRoomHome')->middleware('check');
-//Route::post('/latestUpload','ClassRoomController@LatestUploads')->middleware('check');
 
-//Route::get('/tutorials','TutorialController@TutorialPage')->middleware('check');
-//Route::post('/tutorialByCategory','TutorialController@TutorialByCategory')->middleware('check');
 Route::get('/courseClass/{code}','TutorialController@TutorialByCourseCode')->middleware('check');
 Route::get('/courseVideos','TutorialController@courseVideos')->middleware('check');
 

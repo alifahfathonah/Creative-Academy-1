@@ -13,7 +13,6 @@
                         <div class="p-4">
                             <h5 class="blog-card-title text-justify  mt-2">{{$blogDetails->title}}</h5>
                             <h6 class="blog-card-subtitle text-justify p-0 ">{{$blogDetails->des}}</h6>
-
                         </div>
                     </div>
                 </div>

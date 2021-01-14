@@ -13,6 +13,7 @@
     <link href="{{asset('css/responsive.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{asset('css/fontawesome.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{asset('css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" >
+
 </head>
 <body>
 
@@ -25,10 +26,12 @@
 <script type="text/javascript" src="{{asset('js/jquery-3.4.1.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('js/popper.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{asset('js/mdb.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('js/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="{{asset('js/axios.min.js') }}"></script>
 @yield('script')
 <script type="text/javascript" src="{{asset('js/site.js') }}"></script>
+
 
 
 </body>

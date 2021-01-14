@@ -12,7 +12,6 @@
 
   <thead>
     <tr>
-        <th class="th-sm">NO</th>
 	    <th class="th-sm">IP</th>
 	    <th class="th-sm">Time</th>
         <th class="th-sm">Date</th>
@@ -21,16 +20,13 @@
 
   <tbody>
 
-
     @foreach($visitorData as $visitorData)
     <tr>
-    <th class="th-sm">{{$visitorData->id}}</th>
 	    <td class="th-sm">{{$visitorData->ip_address}}</td>
 	    <td class="th-sm">{{$visitorData->visit_time}}</td>
         <td class="th-sm">{{$visitorData->visit_date}}</td>
     </tr>
     @endforeach
-
 
   </tbody>
 

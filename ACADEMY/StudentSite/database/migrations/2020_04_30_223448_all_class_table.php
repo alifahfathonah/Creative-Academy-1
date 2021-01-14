@@ -20,7 +20,6 @@ class AllClassTable extends Migration
             $table->string('title',1000);
             $table->string('source',1000);
             $table->string('video_link',1000);
-            $table->string('category',1000);
             $table->string('code',1000);
         });
     }

@@ -43,7 +43,7 @@ class ClassListController extends Controller
         $title=$req->input('title');
         $source=$req->input('source');
         $video_link=$req->input('video_link');
-        $category=$req->input('category');
+        $code=$req->input('code');
 
         $result=ClassListModel::where('id','=',$id)->update([
             'serial_no'=>$serial_no,
@@ -51,7 +51,7 @@ class ClassListController extends Controller
             'title'=>$title,
             'source'=>$source,
             'video_link'=>$video_link,
-            'category'=>$category,
+            'code'=>$code,
         ]);
 
         if ($result==true){
@@ -70,7 +70,7 @@ class ClassListController extends Controller
         $title=$req->input('title');
         $source=$req->input('source');
         $video_link=$req->input('video_link');
-        $category=$req->input('category');
+        $code=$req->input('code');
 
         $result= ClassListModel::insert([
             'serial_no'=>$serial_no,
@@ -78,7 +78,7 @@ class ClassListController extends Controller
             'title'=>$title,
             'source'=>$source,
             'video_link'=>$video_link,
-            'category'=>$category,
+            'code'=>$code
         ]);
 
         if($result==true){

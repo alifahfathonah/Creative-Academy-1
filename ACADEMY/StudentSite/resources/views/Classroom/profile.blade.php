@@ -3,56 +3,6 @@
 @section('content')
     @include('Classroom.pass_reset')
 
-    <!--
-
-    <div class="container section-marginmd mb-1">
-        <div class="row">
-            <div class="col-md-12 p-2 mainDiv d-none">
-                <div class="app-card">
-                    <div class="col-md-12 msgCard mt-2 ">
-                        <h3 class="title-text">User Information</h3>
-                        <h3 class="des-text">One Time You Can't Change</h3>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <td><b>Name At Facebook Profile: </b></td>
-                                    <td ></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Facebook Profile Url:</b> </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><b>User Mobile No:</b> </td>
-                                    <td ></td>
-                                </tr>
-
-                                <tr>
-                                    <td><b>Address:</b> </td>
-                                    <td ></td>
-                                </tr>
-
-                                <tr>
-                                    <td><b>Job Title:</b> </td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td><b>Company:</b> </td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                        </div>
-                </div>
-            </div>
-        </div>
-     </div>
-    </div>
-
-  -->
-
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-12 p-2 mainDiv d-none">

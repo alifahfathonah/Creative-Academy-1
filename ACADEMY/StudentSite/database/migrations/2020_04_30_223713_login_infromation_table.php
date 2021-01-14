@@ -19,7 +19,6 @@ class LoginInfromationTable extends Migration
             $table->string('ip_address',1000);
             $table->string('logtime',1000);
             $table->string('logdate',1000);
-            $table->string('course_name',1000);
         });
     }
 

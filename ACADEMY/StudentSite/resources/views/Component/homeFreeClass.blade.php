@@ -1,7 +1,7 @@
 <div class="jumbotron bg-white section-margin jumbotron-fluid">
     <div class="container text-center">
         <h5 class="title-text mt-2"><b>FREE CLASS</b></h5>
-        <p class="des-text m-0">Watch free videos on Laravel by Rabbil Hasan</p>
+        <p class="des-text m-0"></p>
         <div class="row">
             <div class="owl-carousel owl-theme">
                 @foreach($freeClass as $freeClass)

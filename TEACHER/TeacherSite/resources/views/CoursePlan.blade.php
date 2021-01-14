@@ -155,8 +155,8 @@
                                 "<td>" + jsonData[i].short_des +"</td>" +
                                 "<td>" + jsonData[i].key_points +"</td>" +
                                 "<td>" + jsonData[i].video +"</td>" +
-                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
-                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
+                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit btn-outline-success edit-btn-color'></i></a></td>" +
+                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt btn-outline-danger delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
                         });
 

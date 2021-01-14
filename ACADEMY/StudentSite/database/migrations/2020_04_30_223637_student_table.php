@@ -19,8 +19,6 @@ class StudentTable extends Migration
             $table->string('email',1000);
             $table->string('pass',1000);
             $table->string('phn',1000);
-            $table->string('bkashNo',1000);
-            $table->string('trx',1000);
             $table->string('status',1000);
         });
     }

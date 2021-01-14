@@ -16,7 +16,7 @@
                         <th class="th-sm">Topic</th>
                         <th class="th-sm">Title</th>
                         <th class="th-sm">Video Link</th>
-                        <th class="th-sm">Category</th>
+                        <th class="th-sm">Course Code</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -79,7 +79,7 @@
                             <div class="col-md-6">
                                 <input type="text" id="ClassListSourceEditId" class="form-control mb-4" placeholder="Class List Source">
                                 <input type="text" id="ClassListVideoEditId" class="form-control mb-4" placeholder="Class List Video">
-                                <input type="text" id="ClassListCategoryEditId" class="form-control mb-4" placeholder="Class List Category">
+                                <input type="text" id="ClassCodeEditId" class="form-control mb-4" placeholder="Course Code">
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             <div class="col-md-6">
                                 <input type="text" id="ClassListSourceAddId" class="form-control mb-4" placeholder="Class List Source">
                                 <input type="text" id="ClassListVideoAddId" class="form-control mb-4" placeholder="Class List Video">
-                                <input type="text" id="ClassListCategoryAddId" class="form-control mb-4" placeholder="Class List Category">
+                                <input type="text" id="ClassCodeAddId" class="form-control mb-4" placeholder="Course Code">
                             </div>
                         </div>
                     </div>
@@ -158,9 +158,9 @@
                                 "<td>" + jsonData[i].topic +"</td>" +
                                 "<td>" + jsonData[i].title + "</td>" +
                                 "<td>" + jsonData[i].video_link +"</td>" +
-                                "<td>" + jsonData[i].category +"</td>" +
-                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
-                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
+                                "<td>" + jsonData[i].code +"</td>" +
+                                "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit btn-outline-success edit-btn-color'></i></a></td>" +
+                                "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt btn-outline-danger delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
                         });
 
@@ -254,7 +254,7 @@
                         $('#ClassListTitleEditId').val(jsonData[0].title);
                         $('#ClassListSourceEditId').val(jsonData[0].source);
                         $('#ClassListVideoEditId').val(jsonData[0].video_link);
-                        $('#ClassListCategoryEditId').val(jsonData[0].category);
+                        $('#ClassCodeEditId').val(jsonData[0].code);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -276,13 +276,13 @@
             let title=$('#ClassListTitleEditId').val();
             let source=$('#ClassListSourceEditId').val();
             let video_link=$('#ClassListVideoEditId').val();
-            let category=$('#ClassListCategoryEditId').val();
+            let code=$('#ClassCodeEditId').val();
 
-            ClassListUpdate(id,serial_no,topic,title,source,video_link,category);
+            ClassListUpdate(id,serial_no,topic,title,source,video_link,code);
         })
 
         //Class List Update Method
-        function ClassListUpdate(id,serial_no,topic,title,source,video_link,category){
+        function ClassListUpdate(id,serial_no,topic,title,source,video_link,code){
 
             if (serial_no.length==0){
                 toastr.error('Serial No is Required !');
@@ -299,8 +299,8 @@
             else if (video_link.length==0){
                 toastr.error('Video Link is Required !');
             }
-            else if (category.length==0){
-                toastr.error('Category is Required !');
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
             }
             else{
 
@@ -313,7 +313,7 @@
                     title:title,
                     source:source,
                     video_link:video_link,
-                    category:category,
+                    code:code,
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
@@ -351,12 +351,12 @@
             let title=$('#ClassListTitleAddId').val();
             let source=$('#ClassListSourceAddId').val();
             let video_link=$('#ClassListVideoAddId').val();
-            let category=$('#ClassListCategoryAddId').val();
+            let code=$('#ClassCodeAddId').val();
 
-            ClassListAdd(serial_no,topic,title,source,video_link,category);
+            ClassListAdd(serial_no,topic,title,source,video_link,code);
         })
         // Class List Add Method
-        function ClassListAdd(serial_no,topic,title,source,video_link,category) {
+        function ClassListAdd(serial_no,topic,title,source,video_link,code) {
 
             if (serial_no.length==0){
                 toastr.error('Serial No is Required !');
@@ -373,8 +373,8 @@
             else if (video_link.length==0){
                 toastr.error('Video Link is Required !');
             }
-            else if (category.length==0){
-                toastr.error('Category is Required !');
+            else if (code.length==0){
+                toastr.error('Course Code is Required !');
             }
             else{
 
@@ -386,7 +386,7 @@
                     title:title,
                     source:source,
                     video_link:video_link,
-                    category:category,
+                    code:code,
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
@@ -396,10 +396,12 @@
                                 toastr.success('Add Success');
                                 getClassListData();
 
-                                $('#CategoryNameAddId').val('');
-                                $('#CategoryDesAddId').val('');
-                                $('#CategoryTitleAddId').val('');
-                                $('#CategoryImageAddId').val('');
+                                $('#ClassListSerialAddId').val('');
+                                $('#ClassListTopicAddId').val('');
+                                $('#ClassListTitleAddId').val('');
+                                $('#ClassListSourceAddId').val('');
+                                $('#ClassListVideoAddId').val('');
+                                $('#ClassCodeAddId').val('');
 
                             } else {
                                 $('#addModal').modal('hide');

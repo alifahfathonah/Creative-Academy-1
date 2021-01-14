@@ -14,8 +14,6 @@ class ClassRoomController extends Controller
         if(Session::has('token')==true){
             $phn=Session::get('token');
         }
-
-
         $ClassRoomCourse=PurchaseModel::Where('phn','=',$phn)->where('status','=','active')->get();
         return view('Classroom.classRoom',['ClassRoomCourse'=>$ClassRoomCourse]);
     }

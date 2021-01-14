@@ -5,9 +5,14 @@
         <div class="row ">
             <div class="container card p-3">
                 <div class="row ">
+
+                    <div class="col-md-3 p-4 col-sm-12">
+
+                    </div>
+
                     <div class="col-md-6 col-sm-12">
                         <div class="card-body p-4">
-                            <h5 class="title-text my-3">COURSE REGISTRATION</h5>
+                            <h5 class="title-text my-3">REGISTRATION FOR STUDENT</h5>
                             <form action="" class="regForm">
                             <div class="form-group">
                                 <input required="" name="name" type="text" class="form-control" placeholder="Your Name">
@@ -29,9 +34,8 @@
                         <div id="snackbar"></div>
                     </div>
 
-                    <div class="col-md-6 card-body p-4 col-sm-12">
-                       <h4>How Creative Academy Works</h4>
-                        <p class="text-justify des-text ">{!!$PaymentGuide[0]->des!!} ?></p>
+                    <div class="col-md-3 p-4 col-sm-12">
+
                     </div>
 
                 </div>
