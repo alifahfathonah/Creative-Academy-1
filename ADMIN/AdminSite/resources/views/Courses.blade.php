@@ -12,11 +12,11 @@
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="th-sm">ID</th>
                         <th class="th-sm">Course Title</th>
-                        <th class="th-sm">Course Description</th>
                         <th class="th-sm">Course Code</th>
                         <th class="th-sm">Course Fee</th>
+                        <th class="th-sm">Total Class</th>
+                        <th class="th-sm">Total Student</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
@@ -78,6 +78,8 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" id="CourseFeeEditId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseTotalClassEditId" class="form-control mb-4" placeholder="Course Total Class">
+                                <input type="text" id="CourseTotalStudentEditId" class="form-control mb-4" placeholder="Course Total Student">
                                 <input type="text" id="CourseImageEditId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
@@ -113,6 +115,8 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" id="CourseFeeAddId" class="form-control mb-4" placeholder="Course Fee">
+                                <input type="text" id="CourseTotalClassAddId" class="form-control mb-4" placeholder="Course Total Class">
+                                <input type="text" id="CourseTotalStudentAddId" class="form-control mb-4" placeholder="Course Total Student">
                                 <input type="text" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
@@ -152,11 +156,11 @@
                         $.each(jsonData, function (i, item){
 
                             $('<tr>').html(
-                                "<td>" + jsonData[i].id + "</td>" +
                                 "<td>" + jsonData[i].title + "</td>" +
-                                "<td>" + jsonData[i].des +"</td>" +
                                 "<td>" + jsonData[i].code +"</td>" +
                                 "<td>" + jsonData[i].fee +"</td>" +
+                                "<td>" + jsonData[i].totalClass +"</td>" +
+                                "<td>" + jsonData[i].totalStudent +"</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
                                 "<td><a class='DeleteBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-trash-alt delete-btn-color'></i></a></td>"
                             ).appendTo('#MainTableData');
@@ -251,6 +255,8 @@
                         $('#CourseDesEditId').val(jsonData[0].des);
                         $('#CourseCodeEditId').val(jsonData[0].code);
                         $('#CourseFeeEditId').val(jsonData[0].fee);
+                        $('#CourseTotalClassEditId').val(jsonData[0].totalClass);
+                        $('#CourseTotalStudentEditId').val(jsonData[0].totalStudent);
                         $('#CourseImageEditId').val(jsonData[0].img);
                     }
                     else{
@@ -272,13 +278,15 @@
             let des=$('#CourseDesEditId').val();
             let code=$('#CourseCodeEditId').val();
             let fee=$('#CourseFeeEditId').val();
+            let totalClass=$('#CourseTotalClassEditId').val();
+            let totalStudent=$('#CourseTotalStudentEditId').val();
             let img=$('#CourseImageEditId').val();
 
-            CourseUpdate(id,title,des,code,fee,img);
+            CourseUpdate(id,title,des,code,fee,totalClass,totalStudent,img);
         })
 
         //Course Update Method
-        function CourseUpdate(id,title,des,code,fee,img){
+        function CourseUpdate(id,title,des,code,fee,totalClass,totalStudent,img){
 
             if (title.length==0){
                 toastr.error('Course Title is Required !');
@@ -291,6 +299,12 @@
             }
             else if (fee.length==0){
                 toastr.error('Course Fee is Required !');
+            }
+            else if (totalClass.length==0){
+                toastr.error('Course Total Class is Required !');
+            }
+            else if (totalStudent.length==0){
+                toastr.error('Course Total Student is Required !');
             }
             else if (img.length==0){
                 toastr.error('Course Image is Required !');
@@ -305,7 +319,9 @@
                     des:des,
                     code:code,
                     fee:fee,
-                    img:img,
+                    totalClass:totalClass,
+                    totalStudent:totalStudent,
+                    img:img
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
@@ -337,17 +353,18 @@
 
         // Course Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
+            let title = $('#CourseTitleAddId').val();
+            let des = $('#CourseDesAddId').val();
+            let code = $('#CourseCodeAddId').val();
+            let fee = $('#CourseFeeAddId').val();
+            let totalClass = $('#CourseTotalClassAddId').val();
+            let totalStudent = $('#CourseTotalStudentAddId').val();
+            let img = $('#CourseImageAddId').val();
 
-            let title=$('#CourseTitleAddId').val();
-            let des=$('#CourseDesAddId').val();
-            let code=$('#CourseCodeAddId').val();
-            let fee=$('#CourseFeeAddId').val();
-            let img=$('#CourseImageAddId').val();
-
-           CourseAdd(title,des,code,fee,img);
+            CourseAdd(title,des,code,fee,totalClass,totalStudent,img);
         })
         // Course Add Method
-        function CourseAdd(title,des,code,fee,img) {
+        function CourseAdd(title,des,code,fee,totalClass,totalStudent,img) {
 
             if (title.length==0){
                 toastr.error('Course Title is Required !');
@@ -361,24 +378,29 @@
             else if (fee.length==0){
                 toastr.error('Course Fee is Required !');
             }
+            else if (totalClass.length==0){
+                toastr.error('Course Total Class is Required !');
+            }
+            else if (totalStudent.length==0){
+                toastr.error('Course Total Student is Required !');
+            }
             else if (img.length==0){
                 toastr.error('Course Image is Required !');
             }
             else{
-
-                $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
-
+                $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation....
                 axios.post('/CourseAdd', {
                     title:title,
                     des:des,
                     code:code,
                     fee:fee,
+                    totalClass:totalClass,
+                    totalStudent:totalStudent,
                     img:img
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
-                        if(response.status==200){
-                            if (response.data == 1) {
+                        if(response.status==200 && response.data == 1){
                                 $('#addModal').modal('hide');
                                 toastr.success('Add Success');
                                 getCourseData();
@@ -387,13 +409,9 @@
                                 $('#CourseDesAddId').val('');
                                 $('#CourseCodeAddId').val('');
                                 $('#CourseFeeAddId').val('');
+                                $('#CourseTotalClassAddId').val('');
+                                $('#CourseTotalStudentAddId').val('');
                                 $('#CourseImageAddId').val('');
-
-                            } else {
-                                $('#addModal').modal('hide');
-                                toastr.error('Add Fail');
-                                getCourseData();
-                            }
                         }
                         else{
                             $('#addModal').modal('hide');

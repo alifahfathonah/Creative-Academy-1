@@ -19,12 +19,12 @@ class LoginController extends Controller
 
 
     function onLogin(Request $request){
-        $user= $request->input('user');
-        $pass= $request->input('pass');
-        $countValue=AdministratorModel::where('username',$user)->where('password',$pass)->count();
+        $email= $request->input('email');
+        $password= $request->input('password');
+        $countValue=AdministratorModel::where('email',$email)->where('password',$password)->count();
 
         if($countValue==1){
-            $request->session()->put('user',$user);
+            $request->session()->put('email',$email);
             return 1;
         }
         else{

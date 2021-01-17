@@ -54,7 +54,7 @@
 
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -69,7 +69,7 @@
                     <div id="EditForm" class="d-none w-100">
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input type="text" id="ReviewNameEditId" class="form-control mb-4" placeholder="Review name">
                                 <textarea type="text" class="form-control mb-4" id="ReviewDesEditId" placeholder="Review Description" rows="3"></textarea>
                                 <input type="text" id="ReviewImageEditId" class="form-control mb-4" placeholder="Review Image">

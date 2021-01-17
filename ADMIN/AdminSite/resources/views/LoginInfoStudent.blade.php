@@ -14,7 +14,6 @@
                         <th class="th-sm">IP Address </th>
                         <th class="th-sm">Login Time</th>
                         <th class="th-sm">Login Date </th>
-                        <th class="th-sm">Course Name</th>
                     </tr>
                     </thead>
                     <tbody id="MainTableData">
@@ -74,8 +73,7 @@
                                 "<td>" + jsonData[i].mobile + "</td>" +
                                 "<td>" + jsonData[i].ip_address  + "</td>" +
                                 "<td>" + jsonData[i].logtime  +"</td>" +
-                                "<td>" + jsonData[i].logdate  +"</td>" +
-                                "<td>" + jsonData[i].course_name +"</td>"
+                                "<td>" + jsonData[i].logdate  +"</td>"
                             ).appendTo('#MainTableData');
                         });
 

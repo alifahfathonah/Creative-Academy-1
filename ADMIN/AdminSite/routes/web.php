@@ -21,23 +21,6 @@ Route::post('/StudentDelete','StudentInfoController@StudentDelete')->middleware(
 Route::post('/getStudentDetails','StudentInfoController@getStudentDetails')->middleware('loginCheck');
 Route::post('/StudentUpdate','StudentInfoController@StudentUpdate')->middleware('loginCheck');
 
-//For Course Feature
-Route::get('/courseFeatureIndex', 'CourseFeatureController@courseFeatureIndex')->middleware('loginCheck');
-Route::get('/getCourseFeatureData','CourseFeatureController@getCourseFeatureData')->middleware('loginCheck');
-Route::post('/CourseFeatureDelete','CourseFeatureController@CourseFeatureDelete')->middleware('loginCheck');
-Route::post('/getCourseFeatureDetails','CourseFeatureController@getCourseFeatureDetails')->middleware('loginCheck');
-Route::post('/courseFeatureUpdate','CourseFeatureController@courseFeatureUpdate')->middleware('loginCheck');
-Route::post('/CourseFeatureAdd','CourseFeatureController@CourseFeatureAdd')->middleware('loginCheck');
-
-
-//For Payment Guide
-Route::get('/PaymentGuideIndex', 'PaymentGuideController@PaymentGuideIndex')->middleware('loginCheck');
-Route::get('/getPaymentGuideData','PaymentGuideController@getPaymentGuideData')->middleware('loginCheck');
-Route::post('/PaymentGuideDelete','PaymentGuideController@PaymentGuideDelete')->middleware('loginCheck');
-Route::post('/getPaymentGuideDetails','PaymentGuideController@getPaymentGuideDetails')->middleware('loginCheck');
-Route::post('/PaymentGuideUpdate','PaymentGuideController@PaymentGuideUpdate')->middleware('loginCheck');
-Route::post('/PaymentGuideAdd','PaymentGuideController@PaymentGuideAdd')->middleware('loginCheck');
-
 //For Login Info Student
 Route::get('/LoginInfoStudentIndex', 'LoginInfoStudentController@LoginInfoStudentIndex')->middleware('loginCheck');
 Route::get('/getLoginInfoStudentData','LoginInfoStudentController@getLoginInfoStudentData')->middleware('loginCheck');
@@ -61,7 +44,7 @@ Route::post('/NoticeUpdate','NoticeController@NoticeUpdate')->middleware('loginC
 Route::post('/NoticeAdd','NoticeController@NoticeAdd')->middleware('loginCheck');
 
 
-//For Notice List
+//For Blog List
 Route::get('/BlogIndex','BlogController@BlogIndex')->middleware('loginCheck');
 Route::get('/getBlogData','BlogController@getBlogData')->middleware('loginCheck');
 Route::post('/BlogDelete','BlogController@BlogDelete')->middleware('loginCheck');

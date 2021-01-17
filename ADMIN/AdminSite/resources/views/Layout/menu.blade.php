@@ -23,15 +23,12 @@
                         <li> <a href="{{url('/visitor')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
                         <li> <a href="{{url('/courseIndex')}}" ><span> <i class="fas fa-laptop-code"></i> </span><span class="hide-menu">Course List</span></a></li>
                         <li> <a href="{{url('/StudentInfo')}}" ><span> <i class="fas fa-user-graduate"></i> </span><span class="hide-menu">Student List</span></a></li>
-                      <!--  <li> <a href="{{url('/courseFeatureIndex')}}" ><span> <i class="far fa-list-alt"></i> </span><span class="hide-menu">Feature List</span></a></li>
-                       <li> <a href="{{url('/ReviewIndex')}}" ><span> <i class="far fa-comment-dots"></i> </span><span class="hide-menu">Review</span></a></li>
-                        <li> <a href="{{url('/PaymentGuideIndex')}}" ><span> <i class="fas fa-dollar-sign"></i> </span><span class="hide-menu">Payment Guide</span></a></li>
-                        -->
                         <li> <a href="{{url('/LoginInfoStudentIndex')}}" ><span> <i class="fas fa-sign-in-alt"></i> </span><span class="hide-menu">Login Info</span></a></li>
                         <li> <a href="{{url('/TeacherList')}}" ><span> <i class="fas fa-user-tie"></i> </span><span class="hide-menu">Teacher List</span></a></li>
                         <li> <a href="{{url('/Notice')}}" ><span> <i class="fas fa-flag-checkered"></i> </span><span class="hide-menu">Notice Board</span></a></li>
                         <li> <a href="{{url('/BlogIndex')}}" ><span> <i class="fas fa-book-reader"></i> </span><span class="hide-menu">Blog Post</span></a></li>
                         <li> <a href="{{url('/ContactIndex')}}" ><span> <i class="fas fa-envelope-open-text"></i> </span><span class="hide-menu">Contact List</span></a></li>
+                        <li> <a href="{{url('/ReviewIndex')}}" ><span> <i class="far fa-comment-dots"></i> </span><span class="hide-menu">Review</span></a></li>
 
 					</ul>
                 </nav>

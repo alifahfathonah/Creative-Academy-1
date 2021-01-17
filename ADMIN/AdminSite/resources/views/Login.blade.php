@@ -2,7 +2,7 @@
 @section('title','Admin Login')
 @section('content')
 
-<div class="container ">
+<div class="container">
 <div class="row justify-content-center d-flex mt-5 mb-5">
 
 <div class="col-md-6 card">
@@ -11,13 +11,15 @@
         <h3 class="text-center" for="exampleInputEmail1">ADMIN LOGIN</h3>
         <hr>
       <form  action=" "  class="m-5 loginForm">
+          <label for="exampleInputEmail1">Email:</label>
         <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-         <input required="" name="userName" value="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User Name">
+
+         <input required="" name="userEmail" value="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
         </div>
+          <label for="exampleInputPassword1">Password:</label>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input  required="" name="userPassword"  value="" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+          <input  required="" name="userPassword"  value="" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
         </div>
         <div class="form-group">
           <button name="submit" type="submit" class="btn btn-block btn-color">Login</button>
@@ -44,22 +46,34 @@
     $('.loginForm').on('submit',function (event) {
         event.preventDefault();
         let formData=$(this).serializeArray();
-        let userName=formData[0]['value'];
+        let email=formData[0]['value'];
         let password=formData[1]['value'];
+        let EmailRegx=/\S+@\S+\.\S+/;
         let url="/onLogin";
-        axios.post(url,{
-            user:userName,
-            pass:password
-        }).then(function (response) {
-            if(response.status==200 && response.data==1){
-                window.location.href="/";
-            }
-            else{
+        if(email.length===0){
+           toastr.error("Email Invalid");
+        }
+        else if(!EmailRegx.test(email)){
+            toastr.error("Email Invalid");
+        }
+        else if(password.length===0){
+            toastr.error("Password Wrong");
+        }
+       else{
+            axios.post(url,{
+                email:email,
+                password:password
+            }).then(function (response) {
+                if(response.status==200 && response.data==1){
+                    window.location.href="/";
+                }
+                else{
+                    toastr.error('Login Fail ! Try Again');
+                }
+            }).catch(function (error) {
                 toastr.error('Login Fail ! Try Again');
-            }
-        }).catch(function (error) {
-            toastr.error('Login Fail ! Try Again');
-        })
+            })
+        }
     })
 
 

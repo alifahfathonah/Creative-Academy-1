@@ -66,12 +66,14 @@ class TeacherController extends Controller
         $Teacher_Details=$req->input('Teacher_Details');
         $Teacher_Email=$req->input('Teacher_Email');
         $Teacher_Phone=$req->input('Teacher_Phone');
+        $password=$req->input('password');
 
         $result= TeacherModel::insert([
             'Teacher_Name'=>$Teacher_Name,
             'Teacher_Details'=>$Teacher_Details,
             'Teacher_Email'=>$Teacher_Email,
-            'Teacher_Phone'=>$Teacher_Phone
+            'Teacher_Phone'=>$Teacher_Phone,
+            'password'=>$password
         ]);
 
         if($result==true){

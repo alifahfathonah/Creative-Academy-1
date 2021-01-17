@@ -20,7 +20,6 @@ class MoreSeriesTable extends Migration
             $table->string('des',1000);
             $table->string('code',1000);
             $table->string('fee',1000);
-            $table->string('class',1000);
             $table->string('totalClass',1000);
             $table->string('totalStudent',1000);
         });

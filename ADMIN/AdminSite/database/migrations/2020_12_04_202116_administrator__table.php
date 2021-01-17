@@ -18,7 +18,7 @@ class AdministratorTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('username');
-            $table->string('email');
+            $table->string('email')->unique();
         });
     }
 

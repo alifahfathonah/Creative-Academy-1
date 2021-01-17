@@ -43,13 +43,17 @@ class CourseController extends Controller
         $des=$req->input('des');
         $code=$req->input('code');
         $fee=$req->input('fee');
+        $totalClass=$req->input('totalClass');
+        $totalStudent=$req->input('totalStudent');
 
         $result=MoreSeriesModel::where('id','=',$id)->update([
             'img'=>$img,
             'title'=>$title,
             'des'=>$des,
             'code'=>$code,
-            'fee'=>$fee
+            'fee'=>$fee,
+            'totalClass'=>$totalClass,
+            'totalStudent'=>$totalStudent
         ]);
 
         if ($result==true){
@@ -63,18 +67,23 @@ class CourseController extends Controller
 
 
     function CourseAdd(Request $req){
-        $img=$req->input('img');
         $title=$req->input('title');
         $des=$req->input('des');
         $code=$req->input('code');
         $fee=$req->input('fee');
+        $totalClass=$req->input('totalClass');
+        $totalStudent=$req->input('totalStudent');
+        $img=$req->input('img');
+
 
         $result= MoreSeriesModel::insert([
             'img'=>$img,
             'title'=>$title,
             'des'=>$des,
             'code'=>$code,
-            'fee'=>$fee
+            'fee'=>$fee,
+            'totalClass'=>$totalClass,
+            'totalStudent'=>$totalStudent
         ]);
 
         if($result==true){

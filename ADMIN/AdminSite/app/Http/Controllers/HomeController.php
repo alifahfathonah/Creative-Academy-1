@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use App\Model\VisitorModel;
 use App\Model\MoreSeriesModel;
 use App\Model\StudentListModel;
-use App\Model\LoginSuccessModel;
 use App\Model\TeacherModel;
 use App\Model\NoticeModel;
 use App\Model\BlogModel;
@@ -20,7 +19,6 @@ class HomeController extends Controller
             $TotalVisitor=VisitorModel::count();
             $TotalCourse=MoreSeriesModel::count();
             $TotalStudent=StudentListModel::count();
-            $TotalLogin=LoginSuccessModel::count();
             $TotalTeacher=TeacherModel::count();
             $TotalNotice=NoticeModel::count();
             $TotalBlog=BlogModel::count();
@@ -31,7 +29,6 @@ class HomeController extends Controller
                   'TotalVisitor'=>$TotalVisitor,
                   'TotalCourse'=>$TotalCourse,
                   'TotalStudent'=>$TotalStudent,
-                  'TotalLogin'=>$TotalLogin,
                   'TotalTeacher'=>$TotalTeacher,
                   'TotalNotice'=>$TotalNotice,
                   'TotalBlog'=>$TotalBlog,

@@ -11,7 +11,6 @@
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="th-sm">Student ID</th>
                         <th class="th-sm">Student Name</th>
                         <th class="th-sm">Student Email</th>
                         <th class="th-sm">Student Phone</th>
@@ -111,7 +110,6 @@
                         $.each(jsonData, function (i,item){
 
                             $('<tr>').html(
-                                "<td>" + jsonData[i].id + "</td>" +
                                 "<td>" + jsonData[i].name + "</td>" +
                                 "<td>" + jsonData[i].email +"</td>" +
                                 "<td>" + jsonData[i].phn +"</td>" +

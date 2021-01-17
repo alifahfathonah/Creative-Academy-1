@@ -11,9 +11,8 @@
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="th-sm">ID</th>
                         <th class="th-sm">Teacher Name</th>
-                        <th class="th-sm">Teacher Details</th>
+                        <th class="th-sm">Teacher Specialist</th>
                         <th class="th-sm">Teacher Email</th>
                         <th class="th-sm">Teacher Phone</th>
                         <th class="th-sm">Edit</th>
@@ -72,7 +71,7 @@
                         <div class="row">
 
                             <input type="text" id="TeacherNameEditId" class="form-control mb-4" placeholder="Teacher Name">
-                            <input type="text" id="TeacherDetailsEditId" class="form-control mb-4" placeholder="Teacher Details">
+                            <input type="text" id="TeacherDetailsEditId" class="form-control mb-4" placeholder="Teacher Specialist">
                             <input type="text" id="TeacherEmailEditId" class="form-control mb-4" placeholder="Teacher Email">
                             <input type="text" id="TeacherPhoneEditId" class="form-control mb-4" placeholder="Teacher Phone">
 
@@ -104,9 +103,10 @@
                         <div class="row">
 
                             <input type="text" id="TeacherNameAddId" class="form-control mb-4" placeholder="Teacher Name">
-                            <input type="text" id="TeacherDetailsAddId" class="form-control mb-4" placeholder="Teacher Details">
-                            <input type="text" id="TeacherEmailAddId" class="form-control mb-4" placeholder="Teacher Email">
+                            <input type="text" id="TeacherDetailsAddId" class="form-control mb-4" placeholder="Teacher Specialist">
+                            <input type="email" id="TeacherEmailAddId" class="form-control mb-4" placeholder="Teacher Email">
                             <input type="text" id="TeacherPhoneAddId" class="form-control mb-4" placeholder="Teacher Phone">
+                            <input type="password" id="TeacherPasswordAddId" class="form-control mb-4" placeholder="Teacher Password">
 
                         </div>
                     </div>
@@ -145,7 +145,6 @@
                         $.each(jsonData, function (i, item){
 
                             $('<tr>').html(
-                                "<td>" + jsonData[i].Teacher_Id + "</td>" +
                                 "<td>" + jsonData[i].Teacher_Name + "</td>" +
                                 "<td>" + jsonData[i].Teacher_Details +"</td>" +
                                 "<td>" + jsonData[i].Teacher_Email +"</td>" +
@@ -276,7 +275,7 @@
                 toastr.error('Teacher Name is Required !');
             }
             else if (Teacher_Details.length==0){
-                toastr.error('Teacher Details is Required !');
+                toastr.error('Teacher Specialist is Required !');
             }
             else if (Teacher_Email.length==0){
                 toastr.error('Teacher Email is Required !');
@@ -310,7 +309,7 @@
                     })
                     .catch(function (error){
                         $('#editModal').modal('hide');
-                        toastr.error('Somethinf Went Wrong !');
+                        toastr.error('Something Went Wrong !');
                     })
             }
 
@@ -318,64 +317,61 @@
 
 
 
-        // Course Add New btn Click
+        // Teacher Add New btn Click
         $('#addNewBtnId').click(function(){
             $('#addModal').modal('show');
         });
 
-        // Course Add Modal Save Btn
+        // Teacher Add Modal Save Btn
         $('#AddConfirmBtn').click(function() {
+            let Teacher_Name = $('#TeacherNameAddId').val();
+            let Teacher_Details = $('#TeacherDetailsAddId').val();
+            let Teacher_Email  = $('#TeacherEmailAddId').val();
+            let Teacher_Phone = $('#TeacherPhoneAddId').val();
+            let password = $('#TeacherPasswordAddId').val();
 
-            let Teacher_Name=$('#TeacherNameAddId').val();
-            let Teacher_Details=$('#TeacherDetailsAddId').val();
-            let Teacher_Email=$('#TeacherEmailAddId').val();
-            let Teacher_Phone=$('#TeacherPhoneAddId').val();
-
-            TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone);
+            TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone,password);
         })
-        // Course Add Method
-        function TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone) {
 
+        // Teacher Add Method
+        function TeacherAdd(Teacher_Name,Teacher_Details,Teacher_Email,Teacher_Phone,password) {
+            let EmailRegx=/\S+@\S+\.\S+/;
             if (Teacher_Name.length==0){
                 toastr.error('Teacher Name is Required !');
             }
             else if (Teacher_Details.length==0){
-                toastr.error('Teacher Details is Required !');
+                toastr.error('Teacher Specialist is Required !');
             }
             else if (Teacher_Email.length==0){
                 toastr.error('Teacher Email is Required !');
+            }
+            else if(!EmailRegx.test(Teacher_Email)){
+                toastr.error("Email Invalid");
             }
             else if (Teacher_Phone.length==0){
                 toastr.error('Teacher Phone is Required !');
             }
             else{
-
-                $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
-
+                $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation....
                 axios.post('/TeacherAdd', {
                     Teacher_Name:Teacher_Name,
                     Teacher_Details:Teacher_Details,
                     Teacher_Email:Teacher_Email,
-                    Teacher_Phone:Teacher_Phone
+                    Teacher_Phone:Teacher_Phone,
+                    password:password
                 })
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
-                        if(response.status==200){
-                            if (response.data == 1) {
-                                $('#addModal').modal('hide');
-                                toastr.success('Add Success');
-                                getTeacherData();
+                        if(response.status==200 && response.data == 1){
+                            $('#addModal').modal('hide');
+                            toastr.success('Add Success');
+                            getTeacherData();
 
-                                $('#TeacherNameAddId').val('');
-                                $('#TeacherDetailsAddId').val('');
-                                $('#TeacherEmailAddId').val('');
-                                $('#TeacherPhoneAddId').val('');
-
-                            } else {
-                                $('#addModal').modal('hide');
-                                toastr.error('Add Fail');
-                                getTeacherData();
-                            }
+                            $('#TeacherNameAddId').val('');
+                            $('#TeacherDetailsAddId').val('');
+                            $('#TeacherEmailAddId').val('');
+                            $('#TeacherPhoneAddId').val('');
+                            $('#TeacherPasswordAddId').val('');
                         }
                         else{
                             $('#addModal').modal('hide');
@@ -389,6 +385,8 @@
             }
 
         }
+
+
 
     </script>
 @endsection
