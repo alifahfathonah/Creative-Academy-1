@@ -23,6 +23,7 @@
                         <li> <a href="{{url('/visitor')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
                         <li> <a href="{{url('/courseIndex')}}" ><span> <i class="fas fa-laptop-code"></i> </span><span class="hide-menu">Course List</span></a></li>
                         <li> <a href="{{url('/StudentInfo')}}" ><span> <i class="fas fa-user-graduate"></i> </span><span class="hide-menu">Student List</span></a></li>
+                        <li> <a href="{{url('/PurchaseCourseIndex')}}" ><span> <i class="fa fa-shopping-cart"></i> </span><span class="hide-menu">Purchase Course</span></a></li>
                         <li> <a href="{{url('/LoginInfoStudentIndex')}}" ><span> <i class="fas fa-sign-in-alt"></i> </span><span class="hide-menu">Login Info</span></a></li>
                         <li> <a href="{{url('/TeacherList')}}" ><span> <i class="fas fa-user-tie"></i> </span><span class="hide-menu">Teacher List</span></a></li>
                         <li> <a href="{{url('/Notice')}}" ><span> <i class="fas fa-flag-checkered"></i> </span><span class="hide-menu">Notice Board</span></a></li>

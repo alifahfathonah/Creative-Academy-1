@@ -21,6 +21,13 @@ Route::post('/StudentDelete','StudentInfoController@StudentDelete')->middleware(
 Route::post('/getStudentDetails','StudentInfoController@getStudentDetails')->middleware('loginCheck');
 Route::post('/StudentUpdate','StudentInfoController@StudentUpdate')->middleware('loginCheck');
 
+//For Purchase Course
+Route::get('/PurchaseCourseIndex', 'PurchaseCourseController@PurchaseCourseIndex')->middleware('loginCheck');
+Route::get('/getPurchaseCourseData','PurchaseCourseController@getPurchaseCourseData')->middleware('loginCheck');
+Route::post('/PurchaseCourseDelete','PurchaseCourseController@PurchaseCourseDelete')->middleware('loginCheck');
+Route::post('/getPurchaseCourseDetails','PurchaseCourseController@getPurchaseCourseDetails')->middleware('loginCheck');
+Route::post('/PurchaseCourseUpdate','PurchaseCourseController@PurchaseCourseUpdate')->middleware('loginCheck');
+
 //For Login Info Student
 Route::get('/LoginInfoStudentIndex', 'LoginInfoStudentController@LoginInfoStudentIndex')->middleware('loginCheck');
 Route::get('/getLoginInfoStudentData','LoginInfoStudentController@getLoginInfoStudentData')->middleware('loginCheck');
