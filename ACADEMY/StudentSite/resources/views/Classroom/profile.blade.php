@@ -5,10 +5,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12 p-2 mainDiv d-none">
-                <div class="app-card">
-                    <div class="col-md-12 msgCard mt-2 ">
-                        <h3 class="title-text mt-2 ">Account Details</h3>
+            <div class="col-md-8 p-2 mainDiv mt-3 d-none">
+                <div class="app-card mt-5">
+                    <div class="col-md-12 msgCard mt-3 ">
+                        <h3 class="title-text mt-1 ">Account Details</h3>
                         <div class="table-responsive">
                         <table class="table">
                             <tr>

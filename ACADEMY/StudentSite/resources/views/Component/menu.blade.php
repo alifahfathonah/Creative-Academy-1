@@ -1,10 +1,10 @@
 <nav class="navbar shadow-sm  fixed-top navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="{{ url('/') }}"><img class="nav-logo" src="{{ asset('images/logo.PNG') }}"></a>
+        <a class="navbar-brand ml-4" href="{{ url('/') }}"><img class="nav-logo" src="{{ asset('images/mainlogo.png') }}"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav p-1">
+            <ul class="navbar-nav ml-4 p-1">
                 <li class="nav-item active">
                     <a class="nav-link nav-font" href="{{url('/') }}">HOME</a>
                 </li>

@@ -4,13 +4,13 @@
 
         <div class="container section-marginbg">
             <div class="row ">
-                <div class="container card p-lg-5">
+                <div class="container  p-lg-5">
                     <div class="row ">
                         <div class="col-md-3 text-center col-sm-12">
 
                         </div>
-                            <div class="col-md-6 mt-5 col-sm-12">
-                                <div class="card-body">
+                            <div class="col-md-6 card p-5 col-sm-12">
+                                <div class="card-body p-5">
                                 <h5 class="title-text mt-3">STUDENT LOGIN</h5>
                                  <form action=" " class="loginForm">
                                 <input id="mobile" required="" name="mobile" value="" type="text" class="form-control my-3 " placeholder="Mobile No">

@@ -3,15 +3,11 @@
 @section('content')
     <div class="container section-marginbg">
         <div class="row ">
-            <div class="container card p-3">
-                <div class="row ">
+            <div class="container">
+                <div class="row justify-content-center">
 
-                    <div class="col-md-3 p-4 col-sm-12">
-
-                    </div>
-
-                    <div class="col-md-6 col-sm-12">
-                        <div class="card-body p-4">
+                    <div class="col-md-6 card p-5 col-sm-6">
+                        <div class="card-body p-5">
                             <h5 class="title-text my-3">REGISTRATION FOR STUDENT</h5>
                             <form action="" class="regForm">
                             <div class="form-group">
@@ -32,10 +28,6 @@
                         </div>
 
                         <div id="snackbar"></div>
-                    </div>
-
-                    <div class="col-md-3 p-4 col-sm-12">
-
                     </div>
 
                 </div>
