@@ -20,7 +20,6 @@
                     <ul id="sidebarnav">
                         <li class="nav-devider mt-0" style="margin-bottom: 5px"></li>
                         <li> <a href="{{url('/')}}" ><span> <i class="fas fa-home"></i> </span><span class="hide-menu">Home</span></a></li>
-                        <li> <a href="{{url('/visitor')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
                         <li> <a href="{{url('/ClassListIndex')}}" ><span> <i class="fas fa-list-ol"></i> </span><span class="hide-menu">Class List</span></a></li>
                         <!--
                         <li> <a href="{{url('/CoursePlanIndex')}}" ><span> <i class="far fa-lightbulb"></i> </span><span class="hide-menu">Course Plan</span></a></li>

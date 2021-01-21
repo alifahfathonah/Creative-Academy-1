@@ -14,6 +14,7 @@ Route::post('/onPurchase', 'CourseEnrollController@onPurchase')->middleware('che
 Route::get('/AllBlog', 'BlogController@AllBlog');
 Route::get('/BlogDetails/{id}', 'BlogController@BlogDetails');
 
+Route::get('/AllReview', 'ReviewController@AllReview');
 Route::get('/contact', 'ContactController@ContactIndex');
 Route::post('/ContactSend', 'ContactController@ContactSend');
 

@@ -29,6 +29,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link nav-font" href="{{url('AllReview')}}">REVIEW</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link nav-font" href="{{url('about')}}">ABOUT</a>
                 </li>
 

@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>@yield('title')</title>
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="icon" href="" type="image/x-icon">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">

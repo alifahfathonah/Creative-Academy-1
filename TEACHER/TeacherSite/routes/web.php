@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@HomeIndex')->middleware('loginCheck');
-Route::get('/visitor', 'VisitorController@VisitorIndex')->middleware('loginCheck');
 
 // For Class List
 Route::get('/ClassListIndex', 'ClassListController@ClassListIndex')->middleware('loginCheck');
