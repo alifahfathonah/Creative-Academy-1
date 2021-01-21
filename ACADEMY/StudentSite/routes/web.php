@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@HomePage');
 
-Route::get('/about', 'AboutController@AboutIndex');
-
 Route::get('/courses', 'CourseController@CoursesPage');
 Route::get('/CourseEnrollPage/{id}', 'CourseEnrollController@CourseEnrollPage')->middleware('check');
 
@@ -15,6 +13,9 @@ Route::get('/AllBlog', 'BlogController@AllBlog');
 Route::get('/BlogDetails/{id}', 'BlogController@BlogDetails');
 
 Route::get('/AllReview', 'ReviewController@AllReview');
+
+Route::get('/about', 'AboutController@AboutIndex');
+
 Route::get('/contact', 'ContactController@ContactIndex');
 Route::post('/ContactSend', 'ContactController@ContactSend');
 
@@ -29,7 +30,6 @@ Route::get('/logout','LogoutController@onLogout')->middleware('check');
 
 //ClassRoom
 Route::get('/classroom','ClassRoomController@ClassRoomPage')->middleware('check');
-
 Route::get('/classRoomHome','ClassRoomController@classRoomHome')->middleware('check');
 
 Route::get('/courseClass/{code}','TutorialController@TutorialByCourseCode')->middleware('check');
@@ -48,4 +48,4 @@ Route::get('/profile','ProfileController@ProfilePage')->middleware('check');
 Route::post('/profileDetail','ProfileController@ProfileDetail')->middleware('check');
 
 //StudentActivities
-Route::post('/addVideoView','StudentActivitiesController@AddVideoView')->middleware('check');
+//Route::post('/addVideoView','StudentActivitiesController@AddVideoView')->middleware('check');

@@ -13,13 +13,11 @@ class HomeController extends Controller
 
         function HomeIndex(){
 
-            $TotalVisitor=VisitorModel::count();
             $TotalClassList=ClassListModel::count();
             $TotalCoursePlan=CoursePlanModel::count();
             $TotalFileDocument=FileDocModel::count();
 
             return view('Home',[
-                  'TotalVisitor'=>$TotalVisitor,
                   'TotalClassList'=>$TotalClassList,
                   'TotalCoursePlan'=>$TotalCoursePlan,
                   'TotalFileDocument'=>$TotalFileDocument,

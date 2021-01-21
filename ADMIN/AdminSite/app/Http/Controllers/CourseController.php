@@ -73,8 +73,12 @@ class CourseController extends Controller
         $fee=$req->input('fee');
         $totalClass=$req->input('totalClass');
         $totalStudent=$req->input('totalStudent');
-        $img=$req->input('img');
 
+        $photoPath=$req->file('img')->store('public');
+        $photoName=(explode('/',$photoPath))[1];
+
+        $host=$_SERVER['HTTP_HOST'];
+        $img="http://".$host."/storage/".$photoName;
 
         $result= MoreSeriesModel::insert([
             'img'=>$img,

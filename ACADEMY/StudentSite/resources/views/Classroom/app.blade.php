@@ -38,8 +38,5 @@
 <script type="text/javascript" src="{{asset('js/sticky-kit.min.js')}}"></script>
 
 
-
-
-
 </body>
 </html>

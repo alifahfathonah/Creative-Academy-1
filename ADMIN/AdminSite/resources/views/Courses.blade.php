@@ -117,7 +117,7 @@
                                 <input type="text" id="CourseFeeAddId" class="form-control mb-4" placeholder="Course Fee">
                                 <input type="text" id="CourseTotalClassAddId" class="form-control mb-4" placeholder="Course Total Class">
                                 <input type="text" id="CourseTotalStudentAddId" class="form-control mb-4" placeholder="Course Total Student">
-                                <input type="text" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
+                                <input type="file" id="CourseImageAddId" class="form-control mb-4" placeholder="Course Image">
                             </div>
                         </div>
                     </div>
@@ -359,12 +359,8 @@
             let fee = $('#CourseFeeAddId').val();
             let totalClass = $('#CourseTotalClassAddId').val();
             let totalStudent = $('#CourseTotalStudentAddId').val();
-            let img = $('#CourseImageAddId').val();
+            let img = $('#CourseImageAddId').prop('files')[0];
 
-            CourseAdd(title,des,code,fee,totalClass,totalStudent,img);
-        })
-        // Course Add Method
-        function CourseAdd(title,des,code,fee,totalClass,totalStudent,img) {
 
             if (title.length==0){
                 toastr.error('Course Title is Required !');
@@ -388,16 +384,17 @@
                 toastr.error('Course Image is Required !');
             }
             else{
+                let MyFormData=new FormData();
+                MyFormData.append('title',title);
+                MyFormData.append('des',des);
+                MyFormData.append('code',code);
+                MyFormData.append('fee',fee);
+                MyFormData.append('totalClass',totalClass);
+                MyFormData.append('totalStudent',totalStudent);
+                MyFormData.append('img',img);
+
                 $('#AddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>"); //Animation....
-                axios.post('/CourseAdd', {
-                    title:title,
-                    des:des,
-                    code:code,
-                    fee:fee,
-                    totalClass:totalClass,
-                    totalStudent:totalStudent,
-                    img:img
-                })
+                axios.post('/CourseAdd',MyFormData)
                     .then(function(response) {
                         $('#AddConfirmBtn').html("Save");
                         if(response.status==200 && response.data == 1){
@@ -423,8 +420,7 @@
                         toastr.error('Something Went Wrong !');
                     });
             }
-
-        }
+        })
 
     </script>
 @endsection

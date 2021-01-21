@@ -2,23 +2,21 @@
 @section('title','Admin Login')
 @section('content')
 
-<div class="container">
-<div class="row justify-content-center d-flex mt-5 mb-5">
+    <div class="bg-dark m-0" style="height: 654px; width: 100%">
 
-<div class="col-md-6 card">
+<div class="container">
+<div class="row justify-content-center d-flex mb-2">
+
+<div class="col-md-6 mt-5 card">
   <div class="row">
     <div style="height: 450px" class="col-md-12 p-3">
-        <h3 class="text-center" for="exampleInputEmail1">ADMIN LOGIN</h3>
+        <h3 class="text-center mt-5" for="exampleInputEmail1">ADMIN LOGIN</h3>
         <hr>
       <form  action=" "  class="m-5 loginForm">
-          <label for="exampleInputEmail1">Email:</label>
         <div class="form-group">
-
          <input required="" name="userEmail" value="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
         </div>
-          <label for="exampleInputPassword1">Password:</label>
         <div class="form-group">
-
           <input  required="" name="userPassword"  value="" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
         </div>
         <div class="form-group">
@@ -30,11 +28,9 @@
 </div>
 
 
-
-
 </div>
 </div>
-
+    </div>
 
 @endsection
 
