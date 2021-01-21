@@ -41,6 +41,9 @@ Route::post('/fileList','FilesController@FileList')->middleware('check');
 Route::get('/message','MessageController@MessagePage')->middleware('check');
 Route::get('/messageList','MessageController@MessageList')->middleware('check');
 
+Route::get('/ReviewIndex','ReviewController@ReviewIndex')->middleware('check');
+Route::post('/ReviewAdd','ReviewController@ReviewAdd')->middleware('check');
+
 Route::get('/profile','ProfileController@ProfilePage')->middleware('check');
 Route::post('/profileDetail','ProfileController@ProfileDetail')->middleware('check');
 

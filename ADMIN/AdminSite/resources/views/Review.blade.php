@@ -11,8 +11,6 @@
                 <table id="SelectTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="th-sm">ID</th>
-                        <th class="th-sm">Image</th>
                         <th class="th-sm">Name</th>
                         <th class="th-sm">Description</th>
                         <th class="th-sm">Edit</th>
@@ -71,7 +69,6 @@
                             <div class="col-md-12">
                                 <input type="text" id="ReviewNameEditId" class="form-control mb-4" placeholder="Review name">
                                 <textarea type="text" class="form-control mb-4" id="ReviewDesEditId" placeholder="Review Description" rows="3"></textarea>
-                                <input type="text" id="ReviewImageEditId" class="form-control mb-4" placeholder="Review Image">
                             </div>
                         </div>
                     </div>
@@ -112,8 +109,6 @@
                         $.each(jsonData, function (i, item){
 
                             $('<tr>').html(
-                                "<td>" + jsonData[i].id + "</td>" +
-                                "<td>" + jsonData[i].image + "</td>" +
                                 "<td>" + jsonData[i].name +"</td>" +
                                 "<td>" + jsonData[i].des +"</td>" +
                                 "<td><a class='EditBtn' data-id=" + jsonData[i].id + " ><i class='fas fa-edit edit-btn-color'></i></a></td>" +
@@ -206,7 +201,6 @@
                         let jsonData=response.data;
                         $('#ReviewNameEditId').val(jsonData[0].name);
                         $('#ReviewDesEditId').val(jsonData[0].des);
-                        $('#ReviewImageEditId').val(jsonData[0].image);
                     }
                     else{
                         $('#EditLoader').addClass('d-none');
@@ -225,22 +219,18 @@
             let id= $('#EditId').html();
             let name=$('#ReviewNameEditId').val();
             let des=$('#ReviewDesEditId').val();
-            let image=$('#ReviewImageEditId').val();
 
-            ReviewUpdate(id,name,des,image);
+            ReviewUpdate(id,name,des);
         })
 
         //Review Update Method
-        function ReviewUpdate(id,name,des,image){
+        function ReviewUpdate(id,name,des){
 
             if (name.length==0){
                 toastr.error('Review Name is Required !');
             }
             else if (des.length==0){
                 toastr.error('Review Description is Required !');
-            }
-            else if (image.length==0){
-                toastr.error('Review Image is Required !');
             }
             else{
 
@@ -249,8 +239,7 @@
                 axios.post('/ReviewUpdate',{
                     id:id,
                     name:name,
-                    des:des,
-                    image:image,
+                    des:des
                 })
                     .then(function (response){
                         $('#editConfirmBtn').html("Save");
