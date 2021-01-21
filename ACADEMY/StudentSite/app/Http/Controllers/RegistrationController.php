@@ -34,14 +34,7 @@ class RegistrationController extends Controller
             ]);
             if($Result==true){
                 try {
-                    $soapClient = new SoapClient("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl");
-                    $paramArray = array('userName' => "01987210026",
-                        'userPassword' => "43912",
-                        'mobileNumber' => trim($mobile),
-                        'smsText' => "Thank you for registering in the Laravel Tutorial Series. You will receive a confirmation SMS shortly. After confirmation your account will be activated and you will be able to login.",
-                        'type' => "TEXT"
-                    );
-                    $value = $soapClient->__call("OneToOne", array($paramArray));
+                   
                 }
                 catch (Exception $e) {
 

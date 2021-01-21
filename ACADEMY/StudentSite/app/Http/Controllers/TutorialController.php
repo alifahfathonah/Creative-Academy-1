@@ -13,12 +13,6 @@ class TutorialController extends Controller
         return view('Classroom.tutorials',['TutorialCategory'=>$category]);
     }
 
-    //function TutorialByCategory(Request $request){
-        //$Category= $request->input('ClassCategory');
-        //$ClassList=ClassListModel::orderBy('id','desc')->where('category','=',$Category)->get();
-       // return $ClassList;
-   // }
-
 
     function TutorialByCourseCode(Request $request){
         $code= $request->code;

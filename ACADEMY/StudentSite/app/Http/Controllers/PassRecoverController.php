@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\StudentListModel;
-use SoapClient;
 class PassRecoverController extends Controller
 {
     function onRecover(Request $req) {
