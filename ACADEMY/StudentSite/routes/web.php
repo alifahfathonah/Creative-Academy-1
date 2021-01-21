@@ -46,6 +46,3 @@ Route::post('/ReviewAdd','ReviewController@ReviewAdd')->middleware('check');
 
 Route::get('/profile','ProfileController@ProfilePage')->middleware('check');
 Route::post('/profileDetail','ProfileController@ProfileDetail')->middleware('check');
-
-//StudentActivities
-//Route::post('/addVideoView','StudentActivitiesController@AddVideoView')->middleware('check');

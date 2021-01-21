@@ -8,7 +8,7 @@
             <div style="margin-top: 80px;" class="col-md-12">
                 <h4 class="mb-3 text-center">Class Videos</h4>
 
-                <table id="SelectTable" class="table table-striped table-bordered" cellspacing="5" width="100%">
+                <table id="SelectTable" class="table table-striped table-bordered" cellspacing="" width="100%">
                     <thead>
                     <tr>
                         <th class="th-sm">topic</th>
@@ -39,6 +39,12 @@
 @section('script')
 
     <script type="text/javascript">
+
+// Notice data table js
+$('#SelectTable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+//
+
         $(document).ready(function () {
 
             var iframe = $('#vimeo-player')[0];
