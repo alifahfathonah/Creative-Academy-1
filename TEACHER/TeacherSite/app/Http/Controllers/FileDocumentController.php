@@ -36,35 +36,19 @@ class FileDocumentController extends Controller
     }
 
 
-    function FileDocumentUpdate(Request $req){
-        $id=$req->input('id');
-        $title=$req->input('title');
-        $doc_url=$req->input('doc_url');
-
-        $result=FileDocModel::where('id','=',$id)->update([
-            'title'=>$title,
-            'doc_url'=>$doc_url,
-        ]);
-
-        if ($result==true){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-
-    }
-
-
     function FileDocumentAdd(Request $req){
         $title=$req->input('title');
-        $doc_url=$req->input('doc_url');
+
+        $filePath=$req->file('doc_url')->store('public');
+        $fileName=(explode('/',$filePath))[1];
+
+        $host=$_SERVER['HTTP_HOST'];
+        $doc_url="http://".$host."/storage/".$fileName;
 
         $result= FileDocModel::insert([
             'title'=>$title,
             'doc_url'=>$doc_url,
         ]);
-
         if($result==true){
             return 1;
         }

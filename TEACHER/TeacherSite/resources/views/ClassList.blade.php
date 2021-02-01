@@ -72,13 +72,13 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" id="ClassListSerialEditId" class="form-control mb-4" placeholder="Class List Serial">
-                                <input type="text" id="ClassListTopicEditId" class="form-control mb-4" placeholder="Class List Topic">
-                                <input type="text" id="ClassListTitleEditId" class="form-control mb-4" placeholder="Class List Title">
+                                <input type="text" id="ClassListSerialEditId" class="form-control mb-4" placeholder="Class Serial">
+                                <input type="text" id="ClassListTopicEditId" class="form-control mb-4" placeholder="Class Topic">
+                                <input type="text" id="ClassListTitleEditId" class="form-control mb-4" placeholder="Class Title">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" id="ClassListSourceEditId" class="form-control mb-4" placeholder="Class List Source">
-                                <input type="text" id="ClassListVideoEditId" class="form-control mb-4" placeholder="Class List Video">
+                                <input type="text" id="ClassListSourceEditId" class="form-control mb-4" placeholder="Class Source">
+                                <input type="text" id="ClassListVideoEditId" class="form-control mb-4" placeholder="Class Video">
                                 <input type="text" id="ClassCodeEditId" class="form-control mb-4" placeholder="Course Code">
                             </div>
                         </div>
@@ -108,13 +108,13 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" id="ClassListSerialAddId" class="form-control mb-4" placeholder="Class List Serial">
-                                <input type="text" id="ClassListTopicAddId" class="form-control mb-4" placeholder="Class List Topic">
-                                <input type="text" id="ClassListTitleAddId" class="form-control mb-4" placeholder="Class List Title">
+                                <input type="text" id="ClassListSerialAddId" class="form-control mb-4" placeholder="Class Serial">
+                                <input type="text" id="ClassListTopicAddId" class="form-control mb-4" placeholder="Class Topic">
+                                <input type="text" id="ClassListTitleAddId" class="form-control mb-4" placeholder="Class Title">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" id="ClassListSourceAddId" class="form-control mb-4" placeholder="Class List Source">
-                                <input type="text" id="ClassListVideoAddId" class="form-control mb-4" placeholder="Class List Video">
+                                <input type="text" id="ClassListSourceAddId" class="form-control mb-4" placeholder="Class Source">
+                                <input type="text" id="ClassListVideoAddId" class="form-control mb-4" placeholder="Class Video">
                                 <input type="text" id="ClassCodeAddId" class="form-control mb-4" placeholder="Course Code">
                             </div>
                         </div>

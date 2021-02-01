@@ -13,22 +13,21 @@ Route::post('/getClassListDetails','ClassListController@getClassListDetails')->m
 Route::post('/ClassListUpdate','ClassListController@ClassListUpdate')->middleware('loginCheck');
 Route::post('/ClassListAdd','ClassListController@ClassListAdd')->middleware('loginCheck');
 
-// For Course Plan
-Route::get('/CoursePlanIndex', 'CoursePlanController@CoursePlanIndex')->middleware('loginCheck');
-Route::get('/getCoursePlanData','CoursePlanController@getCoursePlanData')->middleware('loginCheck');
-Route::post('/CoursePlanDelete','CoursePlanController@CoursePlanDelete')->middleware('loginCheck');
-Route::post('/getCoursePlanDetails','CoursePlanController@getCoursePlanDetails')->middleware('loginCheck');
-Route::post('/CoursePlanUpdate','CoursePlanController@CoursePlanUpdate')->middleware('loginCheck');
-Route::post('/CoursePlanAdd','CoursePlanController@CoursePlanAdd')->middleware('loginCheck');
-
-
 // For File Document
 Route::get('/FileDocumentIndex', 'FileDocumentController@FileDocumentIndex')->middleware('loginCheck');
 Route::get('/getFileDocumentData','FileDocumentController@getFileDocumentData')->middleware('loginCheck');
 Route::post('/FileDocumentDelete','FileDocumentController@FileDocumentDelete')->middleware('loginCheck');
-Route::post('/getFileDocumentDetails','FileDocumentController@getFileDocumentDetails')->middleware('loginCheck');
-Route::post('/FileDocumentUpdate','FileDocumentController@FileDocumentUpdate')->middleware('loginCheck');
 Route::post('/FileDocumentAdd','FileDocumentController@FileDocumentAdd')->middleware('loginCheck');
+
+
+// For Contact
+Route::get('/ContactIndex', 'ContactController@ContactIndex')->middleware('loginCheck');
+Route::get('/getContactData','ContactController@getContactData')->middleware('loginCheck');
+
+
+// For Review
+Route::get('/ReviewIndex', 'ReviewController@ReviewIndex')->middleware('loginCheck');
+Route::get('/getReviewData','ReviewController@getReviewData')->middleware('loginCheck');
 
 //Admin Login
 Route::get('/Login','TeacherLoginController@LoginIndex');

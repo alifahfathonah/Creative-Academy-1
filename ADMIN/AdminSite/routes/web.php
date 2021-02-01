@@ -39,16 +39,6 @@ Route::post('/getTeacherDetails','TeacherController@getTeacherDetails')->middlew
 Route::post('/TeacherUpdate','TeacherController@TeacherUpdate')->middleware('loginCheck');
 Route::post('/TeacherAdd','TeacherController@TeacherAdd')->middleware('loginCheck');
 
-
-//For Notice List
-Route::get('/Notice','NoticeController@Notice')->middleware('loginCheck');
-Route::get('/getNoticeData','NoticeController@getNoticeData')->middleware('loginCheck');
-Route::post('/NoticeDelete','NoticeController@NoticeDelete')->middleware('loginCheck');
-Route::post('/getNoticeDetails','NoticeController@getNoticeDetails')->middleware('loginCheck');
-Route::post('/NoticeUpdate','NoticeController@NoticeUpdate')->middleware('loginCheck');
-Route::post('/NoticeAdd','NoticeController@NoticeAdd')->middleware('loginCheck');
-
-
 //For Blog List
 Route::get('/BlogIndex','BlogController@BlogIndex')->middleware('loginCheck');
 Route::get('/getBlogData','BlogController@getBlogData')->middleware('loginCheck');

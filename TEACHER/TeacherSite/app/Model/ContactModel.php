@@ -4,11 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NoticeModel extends Model
+class ContactModel extends Model
 {
-    protected $table = 'notice';
-    protected $primaryKey = 'id';
+    public $table = 'contact';
+    public $primaryKey = 'id';
     public $incrementing = true;
-    protected $keyType = 'int';
+    public $keyType = 'int';
     public $timestamps = false;
 }

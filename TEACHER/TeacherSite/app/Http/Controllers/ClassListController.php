@@ -16,7 +16,6 @@ class ClassListController extends Controller
         return $result;
     }
 
-
     function ClassListDelete(Request $req){
         $id=$req->input('id');
         $result=ClassListModel::where('id','=',$id)->delete();
@@ -43,7 +42,7 @@ class ClassListController extends Controller
         $title=$req->input('title');
         $source=$req->input('source');
         $video_link=$req->input('video_link');
-        $code=$req->input('code');
+        $category=$req->input('category');
 
         $result=ClassListModel::where('id','=',$id)->update([
             'serial_no'=>$serial_no,
@@ -51,7 +50,7 @@ class ClassListController extends Controller
             'title'=>$title,
             'source'=>$source,
             'video_link'=>$video_link,
-            'code'=>$code,
+            'category'=>$category,
         ]);
 
         if ($result==true){
@@ -70,7 +69,7 @@ class ClassListController extends Controller
         $title=$req->input('title');
         $source=$req->input('source');
         $video_link=$req->input('video_link');
-        $code=$req->input('code');
+        $category=$req->input('category');
 
         $result= ClassListModel::insert([
             'serial_no'=>$serial_no,
@@ -78,7 +77,7 @@ class ClassListController extends Controller
             'title'=>$title,
             'source'=>$source,
             'video_link'=>$video_link,
-            'code'=>$code
+            'category'=>$category,
         ]);
 
         if($result==true){

@@ -195,6 +195,14 @@
       <workItem from="1611078785058" duration="900000" />
       <workItem from="1611119260484" duration="270000" />
       <workItem from="1611262213018" duration="413000" />
+      <workItem from="1611339781697" duration="3204000" />
+      <workItem from="1611485271933" duration="1192000" />
+      <workItem from="1611821208187" duration="69000" />
+      <workItem from="1611821286193" duration="4213000" />
+      <workItem from="1611845452712" duration="3361000" />
+      <workItem from="1611919348996" duration="18000" />
+      <workItem from="1611920028293" duration="543000" />
+      <workItem from="1611920593144" duration="3000" />
     </task>
     <servers />
   </component>
@@ -217,21 +225,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607715677115">
+    <state x="431" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611342704668">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
-    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1366.728@0.40.1366.728" timestamp="1607715677115" />
-    <state x="517" y="327" key="NewPhpFileDialog" timestamp="1607630968138">
+    <state x="431" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.40.1366.728@0.40.1366.728" timestamp="1611342704668" />
+    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611341703653">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
-    <state x="517" y="327" key="NewPhpFileDialog/0.40.1366.728@0.40.1366.728" timestamp="1607630968138" />
+    <state x="413" y="159" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1366.728@0.40.1366.728" timestamp="1611341703653" />
+    <state x="517" y="327" key="NewPhpFileDialog" timestamp="1611824448336">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="517" y="327" key="NewPhpFileDialog/0.40.1366.728@0.40.1366.728" timestamp="1611824448336" />
     <state x="339" y="182" key="run.anything.popup" timestamp="1607695509652">
       <screen x="0" y="40" width="1366" height="728" />
     </state>
     <state x="339" y="182" key="run.anything.popup/0.40.1366.728@0.40.1366.728" timestamp="1607695509652" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602221039724">
-      <screen x="0" y="40" width="1366" height="728" />
-    </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.40.1366.728@0.40.1366.728" timestamp="1602221039724" />
   </component>
 </project>

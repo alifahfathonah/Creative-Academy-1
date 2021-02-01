@@ -6,7 +6,6 @@ use App\Model\VisitorModel;
 use App\Model\MoreSeriesModel;
 use App\Model\StudentListModel;
 use App\Model\TeacherModel;
-use App\Model\NoticeModel;
 use App\Model\BlogModel;
 use App\Model\ContactModel;
 use App\Model\ReviewModel;
@@ -15,12 +14,10 @@ class HomeController extends Controller
 {
 
         function HomeIndex(){
-
             $TotalVisitor=VisitorModel::count();
             $TotalCourse=MoreSeriesModel::count();
             $TotalStudent=StudentListModel::count();
             $TotalTeacher=TeacherModel::count();
-            $TotalNotice=NoticeModel::count();
             $TotalBlog=BlogModel::count();
             $TotalContact=ContactModel::count();
             $TotalReview=ReviewModel::count();
@@ -30,7 +27,6 @@ class HomeController extends Controller
                   'TotalCourse'=>$TotalCourse,
                   'TotalStudent'=>$TotalStudent,
                   'TotalTeacher'=>$TotalTeacher,
-                  'TotalNotice'=>$TotalNotice,
                   'TotalBlog'=>$TotalBlog,
                   'TotalContact'=>$TotalContact,
                   'TotalReview'=>$TotalReview,

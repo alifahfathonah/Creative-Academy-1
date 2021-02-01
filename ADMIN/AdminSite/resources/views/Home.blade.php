@@ -7,12 +7,12 @@
 	<div class="row">
 
         <div class="col-md-3 py-2">
-        	<div class="card card-color">
-        		<div class="card-body">
-        			<h2 class="count-card-title">{{$TotalVisitor}}</h2>
-					<h5 class="count-card-text">Total Visitor</h5>
-        		</div>
-        	</div>
+            <div class="card card-color">
+                <div class="card-body">
+                    <h2 class="count-card-title">{{$TotalVisitor}}</h2>
+                    <h5 class="count-card-text">Total Visitor</h5>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-3 py-2">
@@ -42,16 +42,6 @@
             </div>
         </div>
 
-
-
-        <div class="col-md-3 py-2">
-            <div class="card card-color">
-                <div class="card-body">
-                    <h2 class="count-card-title">{{$TotalNotice}}</h2>
-                    <h5 class="count-card-text">Total Notice</h5>
-                </div>
-            </div>
-        </div>
 
         <div class="col-md-3 py-2">
             <div class="card card-color">

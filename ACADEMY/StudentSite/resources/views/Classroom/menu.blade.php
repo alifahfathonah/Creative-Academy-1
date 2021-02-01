@@ -20,9 +20,7 @@
                     <li> <a id="SideMenu1" class="sideNavItem" href="{{url('classroom')}}" ><span> <i class="fa fa-home"></i> </span><span class="hide-menu"> Home</span></a></li>
                     <li> <a id="SideMenu1" class="sideNavItem" href="{{url('/')}}" ><span> <i class="fa fa-globe"></i> </span><span class="hide-menu"> Main Site</span></a></li>
                     <li> <a class="sideNavItem" href="{{url('/files')}}" ><span> <i class="fa fa-folder"></i></span><span class="hide-menu"> Files</span></a></li>
-                    <li> <a class="sideNavItem" href="{{url('/message')}}" ><span> <i class="fa fa-envelope"></i></span><span class="hide-menu"> Messages</span></a></li>
                     <li> <a class="sideNavItem" href="{{url('/ReviewIndex')}}" ><span> <i class="fa fa-comments"></i></span><span class="hide-menu"> Review</span></a></li>
-                    <li> <a class="sideNavItem" target="_blank" href="{{url('https://web.facebook.com')}}" ><span> <i class="fab fa-facebook"></i></span><span class="hide-menu"> Join Discussion</span></a></li>
                     <li> <a class="sideNavItem" href="{{url('/profile')}}" ><span> <i class="fa fa-user-circle"></i></span><span class="hide-menu"> Profile</span></a></li>
                 </ul>
             </nav>

@@ -150,17 +150,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Creative-Academy\ADMIN\AdminSite\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\m\ADMIN\blog\app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Creative-Academy\ADMIN\AdminSite\app\Model" />
       <recent name="C:\xampp\htdocs\m\ADMIN\blog\app\Model" />
-      <recent name="C:\xampp\htdocs\m\ADMIN\blog\app" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\m\ADMIN\blog\app" />
     </key>
   </component>
@@ -212,6 +213,11 @@
       <workItem from="1610990127415" duration="5747000" />
       <workItem from="1611078755733" duration="12000" />
       <workItem from="1611198353255" duration="16323000" />
+      <workItem from="1611687411657" duration="1783000" />
+      <workItem from="1611813994365" duration="1839000" />
+      <workItem from="1611919384383" duration="626000" />
+      <workItem from="1611921438098" duration="1769000" />
+      <workItem from="1611985971017" duration="77000" />
     </task>
     <servers />
   </component>

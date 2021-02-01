@@ -80,15 +80,15 @@
                 },2000)
             }
 
-            else if (trxID.length==0){
-                $('#purchaseConfirmBtnId').html('please enter Trx ID !');
+            else if (trxID.length!==10){
+                $('#purchaseConfirmBtnId').html('Trx ID must be 10 Character!');
                 setTimeout(function () {
                     $('#purchaseConfirmBtnId').html('Send Again');
                 },2000)
             }
 
-            else if (payment_mobile.length==0){
-                $('#purchaseConfirmBtnId').html('please enter Payment Mobile !');
+            else if (payment_mobile.length!==11){
+                $('#purchaseConfirmBtnId').html('Payment Mobile No must be 11 digit!');
                 setTimeout(function () {
                     $('#purchaseConfirmBtnId').html('Send Again');
                 },2000)

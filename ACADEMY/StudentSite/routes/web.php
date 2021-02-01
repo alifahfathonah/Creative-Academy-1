@@ -13,7 +13,6 @@ Route::get('/AllBlog', 'BlogController@AllBlog');
 Route::get('/BlogDetails/{id}', 'BlogController@BlogDetails');
 
 Route::get('/AllReview', 'ReviewController@AllReview');
-
 Route::get('/about', 'AboutController@AboutIndex');
 
 Route::get('/contact', 'ContactController@ContactIndex');
@@ -37,9 +36,6 @@ Route::get('/courseVideos','TutorialController@courseVideos')->middleware('check
 
 Route::get('/files','FilesController@FilesPage')->middleware('check');
 Route::post('/fileList','FilesController@FileList')->middleware('check');
-
-Route::get('/message','MessageController@MessagePage')->middleware('check');
-Route::get('/messageList','MessageController@MessageList')->middleware('check');
 
 Route::get('/ReviewIndex','ReviewController@ReviewIndex')->middleware('check');
 Route::post('/ReviewAdd','ReviewController@ReviewAdd')->middleware('check');

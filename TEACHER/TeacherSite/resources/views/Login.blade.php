@@ -43,20 +43,32 @@
         let formData=$(this).serializeArray();
         let Teacher_Email=formData[0]['value'];
         let password=formData[1]['value'];
+        let EmailRegx=/\S+@\S+\.\S+/;
         let url="/onLogin";
-        axios.post(url,{
-            Teacher_Email:Teacher_Email,
-            password:password
-        }).then(function (response) {
-           if(response.status==200 && response.data==1){
-               window.location.href="/";
-           }
-           else{
-               toastr.error('Login Fail ! Try Again');
-           }
-        }).catch(function (error) {
-            toastr.error('Login Fail ! Try Again');
-        })
+        if(Teacher_Email.length===0){
+            toastr.error("Email Invalid");
+        }
+        else if(!EmailRegx.test(Teacher_Email)){
+            toastr.error("Email Invalid");
+        }
+        else if(password.length===0){
+            toastr.error("Password Wrong");
+        }
+        else{
+            axios.post(url,{
+                Teacher_Email:Teacher_Email,
+                password:password
+            }).then(function (response) {
+                if(response.status==200 && response.data==1){
+                    window.location.href="/";
+                }
+                else{
+                    toastr.error('Login Fail ! Try Again');
+                }
+            }).catch(function (error) {
+                toastr.error('Login Fail ! Try Again');
+            })
+        }
     })
 </script>
 @endsection

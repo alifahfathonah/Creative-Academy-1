@@ -1,8 +1,6 @@
 /*
 Template Name: Admin Press Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: js
+I am used to for educational purpose for Creative Academy
 */
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
